@@ -1,0 +1,68 @@
+import "DropList.proto";
+//package core.io.protocol;
+//军资整备
+
+message MilitarySupply_ActionData
+{
+	optional int32				times				= 1; //完成次数
+	repeated int32				reward				= 2; //已领奖档位
+}
+
+
+//请求数据
+message DseMilitarySupply_Data
+{
+	optional int32				totalcharge			= 1; //总充值
+	repeated int32				chargegift			= 2; //充值领奖档位
+	repeated MilitarySupply_ActionData	actionlist	= 3; //任务列表
+	repeated int32				buyidlist			= 4; //已购买id列表
+	repeated int32				buynumlist			= 5; //已购买数量列表
+	repeated int32				exchangeidlist		= 6; //已兑换id列表
+	repeated int32				exchangenumlist		= 7; //已兑换数量列表
+}
+
+//下发充值变化
+message DseMilitarySupply_ChargeData
+{
+	optional int32 totalcharge				= 1;	//总充值
+}
+
+//领取充值奖励
+message DseMilitarySupply_ChargeReward
+{
+	optional int32 id						= 1;	//表id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}
+
+//领取任务奖励
+message DseMilitarySupply_MissionReward
+{
+	optional int32 id						= 1;	//表id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}
+
+//同步任务计数
+message DseMilitarySupply_UpdateActionData
+{
+	optional int32 id						= 1;	//任务类型
+	optional int32 times					= 2; 	//完成次数
+	repeated int32 reward					= 3; 	//已领奖档位
+}
+
+//购买打折商品
+message DseMilitarySupply_Buy
+{
+	optional int32 id						= 1;	//表id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}
+
+//兑换奖励
+message DseMilitarySupply_Exchange
+{
+	optional int32 id						= 1;	//表id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}

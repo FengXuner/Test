@@ -1,0 +1,28 @@
+//package core.io.protocol;
+
+//请求评论数量
+message DceCommentNum
+{
+	optional int32 tarid						= 1;	//目标关卡/佣兵id
+}
+
+//请求评论内容
+message DceCommentData
+{
+	optional int32 tarid						= 1;	//目标关卡/佣兵id
+}
+
+//评论
+message DceCommentAdd
+{
+	optional int32 tarid						= 1;	//目标关卡/佣兵id
+	optional string comment						= 2;	//评论内容
+	optional string name						= 3;	//名字(不用发)
+}
+
+//点赞
+message DceCommentPraise
+{
+	optional int32 tarid						= 1;	//目标关卡/佣兵id
+	optional string uid							= 2;	//目标评论uid
+}

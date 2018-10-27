@@ -1,0 +1,55 @@
+//package core.io.protocol;
+//冒险
+
+message DceGetAdventureExpDrop
+{//领取挂机经验奖励
+}
+
+message DceAdventurePropDrop
+{//查看挂机道具奖励
+}
+
+message DceGetAdventurePropDrop
+{//领取挂机道具奖励
+}
+
+message DceAdventureData
+{//冒险数据
+}
+
+message DceAdventureChallenge
+{//战斗请求
+}
+
+message DceAdventureExplore
+{//快速战斗
+	optional bool isviedo 	 = 1; //是否是观看广告免费快速战斗
+}
+
+message DceAdventureEliteChallenge
+{//精英挑战
+	optional int32			id = 1;
+}
+
+message DceAdventureNextStageData
+{//进入下一关
+}
+
+message DceAdventureEliteSweep
+{//精英挑战扫荡
+	optional int32			id = 1;
+	optional int32			times = 2;
+}
+
+message DceAdventureChallengeHard
+{//战斗请求(困难)
+}
+
+message DceAdventureNextStageHardData
+{//进入下一关(困难)
+}
+
+message DceAdventureChangeDiffuculty
+{//切换难度
+	optional int32			type = 1; //类型（1是简单到困难，2是困难到简单）
+}

@@ -1,0 +1,18 @@
+//package core.io.protocol;
+
+// 魂石副属性数据结构
+message SoulStoneSideAttr
+{
+	optional int32 sideattrid			= 1;			// 副属性id
+	optional int32 sideattrgrow			= 2;			// 副属性成长次数
+}
+
+//魂石数据结构
+message SoulStoneData
+{
+	optional string id 					= 1;			//唯一id
+	optional int32 tblid 				= 2;			//表id
+	optional int32 mainattrid			= 3;			//主属性id
+	optional int32 forcelevel 			= 4;			//强化等级
+	repeated SoulStoneSideAttr sideattr = 5;			//魂石副属性
+}

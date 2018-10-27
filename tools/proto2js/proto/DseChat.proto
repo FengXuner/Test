@@ -1,0 +1,110 @@
+
+//package core.io.protocol;
+//聊天数据下发
+
+//聊天
+message DseChat
+{
+	optional int32 type = 1; 				// 聊天类型
+	optional int32 res  = 2; 				// 0成功1cd未到2没有该聊天类型3没有军团4该玩家不存在5该玩家不在线6在对方黑名单中7自己8等级不足9内容超长
+	optional int32 freechattime = 3;		//免费聊天次数
+	optional int32 costdiamondchattimes = 4;//花费钻石聊天次数
+}
+
+//聊天选项
+message DseChatAction
+{
+	optional int32 result = 1;				//0成功 1未找到对应聊天 2聊天已操作 3未知类型的聊天消息 3未找到发起人 4操作过期
+}
+
+//聊天消息
+message DseChatMsg
+{
+	optional int32 type = 1; 				//1世界聊天2本服聊天3工会聊天4私聊5喇叭6系统广播
+	optional string uid	= 2; 				//发言人uid
+	optional string name = 3; 				//发言人名字
+	optional int32 head = 4; 				//头像
+	optional int32 level = 5; 				//等级
+	optional int32 viplevel = 6; 			//VIP等级
+	optional int32 time = 7; 				//时间
+	optional string content = 8; 			//内容
+	optional string destname = 9; 			//对象名字
+	optional string guildname = 10; 		//公会名称
+	optional string power = 11; 			//战斗力
+	optional int32 adventure = 12;			//当前冒险进度
+	repeated string paramlist = 13;			//对话参数表
+	optional int32 readtime = 14;			//阅读时间
+	optional string taruid = 15;			//接收方uid,仅私聊
+	optional int32 tarhead = 16;			//接收方头像
+	optional int32 broadcasttype = 17; 		//广播子类型：1后台发送2条件触发
+	optional int32 broadcastid = 18;		//广播配表ID
+	optional int32 guildpos = 19;			//公会职务
+	optional int32 pictureID = 20[default = 1];	//头像底座
+	optional int32 region = 21;				//服务器组
+}
+
+//聊天消息记录
+message DseChatMsgLog
+{
+	//repeated DseChatMsg globalmsglist = 1;	//世界频道
+	repeated DseChatMsg localmsglist = 2;	//本服频道
+	repeated DseChatMsg guildmsglist = 3;	//公会频道
+	repeated DseChatMsg privatemsglist = 4;	//私聊频道
+	repeated DseChatMsg broadcastlist = 5;	//广播频道
+	optional int32 freechattime = 6;		//免费聊天次数
+	optional int32 costdiamondchattimes = 7;//花费钻石聊天次数
+}
+
+//黑名单下发
+message DseBlackList
+{
+	repeated BlackData			blacklist			= 1; 
+}
+
+//全服黑名单
+message DseGlobalBlackList
+{
+	repeated BlackData			blacklist			= 1; 
+}
+
+message BlackData
+{
+	optional string				uid					= 1; //黑名单玩家ID
+	optional int32				time				= 2; //屏蔽时间
+	optional int32				head				= 3; //头像ID
+	optional string				name				= 4; //名字
+}
+
+//黑名单操作返回结果
+message DseBlackListOperation
+{
+	optional int32 ret = 1;					//操作结果0成功1聊天信息未找到2未知类型聊天信息3未知类型操作
+	optional int32 type = 2;				//操作类型
+	optional bool global = 3;				//false本服 true全服
+}
+
+//请求全服聊天数据
+message DseGlobalChat
+{
+	optional int32 version = 1;				//服务器当前版本号
+	repeated DseChatMsg globalmsglist = 2;	//世界频道
+}
+
+//请求全服聊天绿点
+message DseGlobalChatTips
+{
+	optional bool havenew = 1;				//是否有新消息
+}
+
+//请求全服广播数据
+message DseGlobalBroadcast
+{
+	optional int32 version = 1;				//客户端当前版本号
+	repeated DseChatMsg broadcastlist = 2;	//广播频道
+}
+
+//请求全服广播绿点
+message DseGlobalBroadcastTips
+{
+	optional bool havenew = 1;				//是否有新消息
+}

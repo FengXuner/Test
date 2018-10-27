@@ -1,0 +1,37 @@
+//package core.io.protocol;
+import "BattleData.proto";
+
+message ExpeditionEnemy
+{
+	optional string uid				= 1;	//id
+	optional int32 region			= 2;	//区服
+	optional int32 index			= 3;	//关卡
+	optional int32 difficult		= 4;	//难度(1：简单  2：普通   3：困难)
+	optional BattlePlayerData data	= 5;	//玩家数据
+	optional string power			= 6;	//战力
+	optional string name			= 7;	//玩家名字
+	optional int32 model			= 8;	//模型
+	optional string battlerate		= 9;	//战力评分
+}
+
+message ExpeditionRandBuff
+{
+	optional int32 index			= 1;	//关卡
+	optional bool choosed			= 2;	//是否选择
+	repeated int32 idlist			= 3;	//buff列表
+}
+
+message ExpeditionBox
+{
+	optional int32 index			= 1;	//关卡
+	optional int32 opentime			= 2;	//开启次数
+}
+
+//初始化远征uid列表数据
+message Expedition_InitEnemyListData
+{
+	optional string		uid			= 1;	//uid
+	optional int32		index		= 2;	//关卡
+	optional int32		difficult	= 3;	//难度
+}
+

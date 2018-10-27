@@ -1,0 +1,72 @@
+import "RelationData.proto";
+
+//package core.io.protocol;
+
+//搜索玩家
+message DceFriendSearch
+{
+	optional string str = 1;					//搜索字符串
+}
+
+//添加好友
+message DceFriendAdd
+{
+	optional string id = 1;						//玩家ID
+}
+
+//申请好友操作
+message DceFriendAddAction
+{
+	optional string id = 1;						//玩家ID
+	optional int32 type = 2;					//操作类型:1,同意;2,拒绝
+}
+
+//删除好友
+message DceDeleteFriend
+{
+	optional string uid = 1;					//玩家ID
+}
+
+//赠送友情点
+message DceSendFriendPoint
+{
+	optional string uid = 1;					//玩家ID
+}
+
+//一键赠送友情点
+message DceSendAllFriendPoint
+{
+}
+
+//收友情点
+message DceGetFriendPoint
+{
+	optional FriendPointData tar = 1;			//收取目标
+}
+
+//一键收友情点
+message DceGetAllFriendPoint
+{
+}
+
+//切磋
+message DceFriendChallenge
+{
+	optional string uid = 1;					//玩家ID
+}
+
+//请求好友数据
+message DceFriendData
+{
+}
+
+//推荐好友
+message DceFriendRecommend
+{
+}
+
+//设置屏蔽申请好友
+message DceFriendSetRefuseInvite
+{
+	optional bool refuse = 1;					//是否拒绝
+}

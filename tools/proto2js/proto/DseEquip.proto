@@ -1,0 +1,76 @@
+import "DropList.proto";
+import "EquipData.proto";
+//package core.io.protocol;
+
+//请求装备整体数据
+message DseEquip_Data
+{
+	repeated EquipData equiplist = 1;		//装备列表
+}
+
+//同步单个装备数据
+message DseEquip_UpdataSingleData
+{
+	optional EquipData data = 1;			//装备数据
+}
+
+//批量装备
+message DseEquip_Set
+{
+	repeated string idlist = 1;				//装备成功唯一id列表
+	optional string  id	   = 2;				//英雄唯一id
+}
+
+//批量卸下装备
+message DseEquip_Discharge
+{
+	repeated string idlist = 1;				//唯一id列表
+	optional string  id	   = 2;				//英雄唯一id
+}
+
+//装备分解
+message DseEquip_Resolve
+{
+	optional int32 ret			= 1;			//操作结果		0：成功  1：服务器错误
+	repeated string idlist  	= 2;			//唯一id列表
+	optional DropList droplist 	= 3;			//掉落列表
+}
+
+//装备强化
+message DseEquip_Strengthen
+{
+	optional string id 				= 1;		//唯一id
+	optional int32 ret 				= 2;		//操作结果   0：成功  1：服务器错误  2：客户端错误  3：装备表错误 4：装备升级表错误 5：该品质武器不可强化 6：强化等级已满 7：强化材料不足
+	optional int32 level 			= 3;		//强化后等级
+}
+
+// 装备升级
+message DseEquip_Upgrade
+{
+	optional int32 ret			= 1;				// 操作结果		0：成功  1：服务器错误  2：客户端错误  3：装备表错误 4：装备升级表错误 5：等级满，不能再升  6：升级材料不足
+	optional string id			= 2;				// 唯一id
+	optional int32 level		= 3;				// 升级后等级
+}
+
+// 装备还原
+message DseEquip_Restore
+{
+	optional int32 ret			= 1;				//操作结果	0：成功  1：服务器错误   2：客户端错误   3：装备表错误  4：装备升级表错误  5：穿戴的装备不可还原   6：未养成的装备不可还原  7：钻石不足，不可还原
+	optional string id 			= 2; 				//唯一id
+	optional DropList droplist 	= 3;				//掉落列表
+}
+
+// 合成装备
+message DseComposeEquip
+{
+	optional int32 ret			= 1;				// 操作结果 0：成功 1:客户端参数错误 2：配表错误 3：碎片不足 4：装备背包已满，无法合成
+	optional DropList droplist 	= 2;				//掉落列表
+}
+
+//装备一键升级
+message DseEquipUpgradeAll
+{
+	repeated EquipUpgradeData equiplist = 1;	//装备列表
+	optional int32 ret			= 2;			//操作结果
+	optional string cost		= 3;			//消耗
+}

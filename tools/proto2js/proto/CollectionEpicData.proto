@@ -1,0 +1,15 @@
+//史诗图鉴数据
+
+message CollectionHeroData
+{
+	optional int32 heroid = 1; //已填充卡牌
+	optional int32 breaktype = 2; //突破属性类型
+	optional int32 breakvalue = 3; //突破属性数值	
+}
+
+message CollectionEpicData
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional int32 epicid = 2; //当前史诗图鉴id
+	//repeated CollectionHeroData herolist = 3; //已废弃
+}

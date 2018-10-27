@@ -1,0 +1,10 @@
+message SevenDayData
+{
+	optional int32 type = 1;		// 类型
+	optional string count = 2;		// 完成计数
+	repeated int32 rewardtime = 3;	// 已领奖次数
+} 
+message SevenDayRechargeData
+{
+	repeated int32 rewardrecharge = 1; //
+}

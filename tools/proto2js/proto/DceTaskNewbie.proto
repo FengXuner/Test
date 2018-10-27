@@ -1,0 +1,8 @@
+//package core.io.protocol;
+//新手任务
+
+// 领取奖励
+message DceTaskNewbieGetReward
+{
+	optional int32 id = 1;        	//任务ID
+}

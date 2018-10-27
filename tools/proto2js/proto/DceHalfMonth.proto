@@ -1,0 +1,14 @@
+//package core.io.protocol;
+
+//数据请求
+message DceHalfMonthData
+{
+}
+
+//领取奖励
+message DceHalfMonthReward
+{
+	optional int32 type						= 1;	//类型
+	optional int32 num						= 2;	//次数(对于登陆奖励这种是天数，对于任务是id)
+	optional int32 count					= 3;	//数量
+}

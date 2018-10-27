@@ -1,0 +1,13 @@
+//package core.io.protocol;
+
+//任务领奖
+message DceDailyMissionReward
+{
+	optional int32 missionid   				= 1;	//任务ID
+}
+
+//领取活跃值奖励
+message DceActivityReward
+{
+	optional int32 id						= 1;	//表id
+}

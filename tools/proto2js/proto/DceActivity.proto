@@ -1,0 +1,257 @@
+//package core.io.protocol;
+//日常活动及限时活动
+
+//宝箱大兑换兑换奖励
+message DceBoxExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+}
+
+//宝箱大兑换请求数据
+message DceBoxExchangeData
+{
+}
+
+//超级大兑换兑换奖励
+message DceRollDiamondExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+}
+
+//超级大兑换请求数据
+message DceRollDiamondExchangeData
+{
+}
+
+//装备兑换奖励
+message DceActivityEquipExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+}
+
+//装备兑换请求数据
+message DceActivityEquipExchangeData
+{
+}
+
+//购买成长计划
+message DceBuyGrownUp
+{
+}
+
+//领取成长计划奖励
+message DceGetGrownUpReward
+{
+	optional int32 id = 1;
+}
+
+//循环返利领奖
+message DceCycleRechargeReward
+{
+}
+
+//循环返利数据
+message DceCycleRechargeData
+{
+}
+
+//请求活跃活动数据
+message DceActivityActionData
+{
+	optional int32 groupid = 1;
+}
+
+//活跃活动领奖
+message DceActivityActionReward
+{
+	optional int32 groupid = 1;
+	optional int32 num = 2;
+}
+
+//你选我送请求数据
+message DceChooseRewardData
+{
+}
+
+//你选我送刷新
+message DceChooseRewardRefresh
+{
+}
+
+//你选我送选择
+message DceChooseReward
+{
+	optional int32 id = 1;
+}
+
+//限时佣兵
+message DceLimitHero
+{
+	optional int32 type = 1; //1免费单次 2付费单次 3付费十次
+	optional bool autodismiss = 2; //自动解散
+	optional int32 id = 3; //英雄id
+}
+
+//限时佣兵数据
+message DceLimitHeroData
+{
+}
+
+//神之祝福
+message DceGodBless
+{
+	optional int32 type = 1;	//1.免费单次 2.付费单次 3.付费十次
+	optional int32 heroid = 2;	//英雄id
+}
+
+//神之祝福数据
+message DceGodBlessData
+{
+	
+}
+
+//新LG抽奖
+message DceNewLGHero
+{
+	optional int32 type = 1; //1免费单次 2付费单次 3付费十次
+	optional bool autodismiss = 2; //自动解散
+}
+
+//新LG抽奖数据
+message DceNewLGHeroData
+{
+}
+
+//秘境工坊
+message DceLimitEquip
+{
+	optional int32 type = 1; //1免费单次 2付费单次 3付费十次
+}
+
+//秘境工坊数据
+message DceLimitEquipData
+{
+}
+
+//限时商店购买商品
+message DceLimitShopBuy
+{
+	optional int32 id = 1;//商品配表id
+	optional int32 count = 2;//购买数量
+}
+
+//限时商店数据
+message DceLimitShopData
+{
+}
+
+//请求限时兑换活动数据
+message DceActivityExchangeData
+{
+	optional int32 groupid = 1;		//活动组id
+}
+
+//限时兑换
+message DceActivityExchange
+{
+	optional int32 groupid = 1;		//活动组id
+	optional int32 pos = 2;			//兑换奖励档位
+	optional int32 num = 3;			//兑换次数
+}
+
+//让红包飞领奖
+message DceMoneyFly
+{
+}
+
+//让红包飞数据
+message DceMoneyFlyData
+{
+}
+
+//佣兵兑换兑换奖励
+message DceHeroExchange
+{
+	optional int32				id = 1;							//奖励id
+}
+
+//佣兵兑换请求数据
+message DceHeroExchangeData
+{
+}
+
+//新手活跃活动
+message DceNewbieActivityData
+{
+	optional int32 tblid			= 1;	//表id
+}
+
+//新手活跃活动领奖
+message DceNewbieActivityReward
+{
+	optional int32 tblid			= 1;	//表id
+	optional int32 pos				= 2;	//兑换奖励位置
+}
+
+//领取天天爱充值奖励
+message DceRechargeEveryday
+{
+	optional int32 id = 1;
+}
+
+//天天爱充值数据
+message DceRechargeEverydayData
+{
+}
+
+//随机礼包检查是否可充值购买
+message DceRandomGiftCanBuy
+{
+	optional int32 funcswitchid = 1;//funcswitchid
+	optional int32 cashid		= 2;//cashid
+}
+
+//随机礼包
+message DceRandomGift
+{
+
+}
+
+//随机礼包购买数据
+message DceBuyRandomGiftData
+{
+	optional int32 funcswitchid = 1;//funcswitchid
+	optional int32 itemid		= 2;//物品id
+}
+
+//遗迹探秘
+message DceRelicExploreData
+{
+	optional int32 type = 1;//探索步数 ， 0 查询，1为探索1次，2为探索10次
+}
+
+//领取活动版天天爱充值奖励
+message DceActivityRechargeEveryday
+{
+	optional int32 id = 1;
+}
+
+//活动版天天爱充值数据
+message DceActivityRechargeEverydayData
+{
+}
+
+//幸运老虎机
+message DceSlotMachine
+{
+	optional int32 type = 1;//类型 0为普通，1为豪华
+}
+
+//幸运老虎机数据
+message DceSlotMachineData
+{
+}
+

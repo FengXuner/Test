@@ -1,0 +1,197 @@
+//package core.io.protocol;
+import "BattleData.proto";
+import "GlobalGuildBattle.proto";
+import "OtherPlayerData.proto";
+import "DropList.proto";
+//公会战报名
+message DseGlobalGuildBattleApply
+{
+	optional int32 res = 1; //
+	repeated string memberlist = 2; //人员列表
+}
+
+//公会战战斗
+message DseGlobalGuildBattleAttack
+{
+	optional int32 res = 1; //
+	optional string uid = 2;
+	optional BattleResult battleresult = 3;//战斗结果
+	optional int32 star = 4; //获得星星
+	optional int32 score = 5;//获得战功
+	optional int32 allstar = 6; //总星星
+	optional int32 npcid = 7; //如果进攻的是npc，则有该id
+	optional int32 deltastar = 8; //实际增加星星
+	optional string defguildname = 9; //防守方公会名字
+	optional int64 defguildid = 10; //防守公会id
+}
+
+//公会战购买攻击次数
+message DseGlobalGuildBattleBuy
+{
+	optional int32 res = 1;
+	optional int32 type = 2;
+}
+
+//公会战取消报名
+message DseGlobalGuildBattleCancelApply
+{
+	optional int32 res = 1; //
+}
+
+//公会战冠军参战列表
+message DseGlobalGuildBattleChampionData
+{
+	repeated GlobalGuildBattleMemberData memberlist = 1;
+	optional GlobalGuildBattleData champion = 2;
+}
+
+//公会战殿堂列表
+message DseGlobalGuildBattleChampionList
+{
+	repeated GlobalGuildBattleData championlist = 1;
+	optional int32 globalid = 2;			
+}
+
+//公会战信息
+message DseGlobalGuildBattleData
+{
+	optional GlobalGuildBattleData guilddata = 1;
+	optional int32 attackbuytimes = 3; //攻击次数购买次数
+	repeated int32 applystartdate =4; //开始报名时间
+	repeated int32 applyendate = 5; //报名截止日期
+	repeated int32 regularstartdate = 6; //预选赛开始日期
+	repeated int32 regularenddate = 7; //预选赛结束日期
+	repeated int32 playoffstartdate = 8; //晋级赛开始日期
+	repeated int32 playoffenddate = 9; //晋级赛结束日期
+	repeated int32 starttime = 10; //开始时间
+	repeated int32 awardtime = 11; //发奖时间
+	repeated int32 rematchtime = 12; //重新匹配时间
+	optional int32 allwintimes = 13; //总胜场数
+	optional int32 wintimes = 14; //当日胜场数
+	optional int32 losetimes = 15; //当日负场数
+	optional int32 attacktimes = 17; //已攻击次数
+	optional string supportid = 18; //支持公会ID
+	optional int32 rank = 19; //个人排名
+	optional int32 score = 20; //个人战功
+	optional int32 guildrank = 21; //公会排名
+	optional int32 guildscore = 22; //公会积分
+	repeated string guildbattleapplylist = 23; //公会战报名列表
+	optional int32 oldguildscore = 26; //昨日公会积分
+	optional int32 worship = 27;//今日是否已膜拜
+	optional int32 oldguildrank = 28;//昨日公会排名
+	optional int32 oldrank = 29;//昨日玩家排名
+	optional int32 oldscore = 30;//昨日玩家积分
+}
+
+//公会战对手信息
+message DseGlobalGuildBattleEnemyData
+{
+	optional GlobalGuildBattleData guilddata = 1; //对手公会数据
+	repeated GlobalGuildBattleMemberData enemylist = 2; //对手成员数据
+	repeated GlobalGuildBattleNpcData npclist = 3; //对手npc数据
+}
+
+//公会战历史战绩信息
+message DseGlobalGuildBattleHistoryData
+{
+	repeated GlobalGuildBattleHistory historylist = 1;
+}
+
+//公会战成员信息
+message DseGlobalGuildBattleMemberData
+{
+	repeated GlobalGuildBattleMemberData memberlist = 1; //己方成员数据
+	repeated GlobalGuildBattleNpcData npclist = 2; //己方npc数据
+}
+
+//修改公会战公告
+message DseGlobalGuildBattleModifyNotify
+{
+	optional int32 res = 1;
+}
+
+//公会战公告
+message DseGlobalGuildBattleNotify
+{
+	optional string notify = 1; //公告内容
+	optional int32 time = 2; //公告修改时间
+	optional string notifyname = 3; //公告发布者名字
+}
+
+//公会战信息
+message DseGlobalGuildBattlePlayoffData
+{
+	repeated GlobalGuildBattleData guilddatalist = 1; //公会数据
+	repeated GlobalGuildBattleResultData guildresultlist = 2; //战斗结果列表
+	repeated string guildlist = 3; //对阵信息
+}
+
+//公会解散
+message DseGlobalGuildBattleQuit
+{
+	optional int64 guildid = 1; //公会id
+}
+
+//更新公会战个人排名信息
+message DseGlobalGuildBattleRankUpdate
+{
+	optional OtherPlayerData playerlist = 1;
+}
+
+//公会战记录信息
+message DseGlobalGuildBattleRecordList
+{
+	repeated GlobalGuildBattleRecord recordlist = 1;
+}
+
+//公会战支持
+message DseGlobalGuildBattleSupport
+{
+	optional int32 res = 1; //1已支持 2钻石不足
+	optional string guildid = 2;
+}
+
+//更新公会战信息
+message DseGlobalGuildBattleUpdate
+{
+	optional GlobalGuildBattleData guildbattle = 1;
+}
+
+//公会战刷新参展人员
+message DseGlobalGuildBattleUpdateApplyList
+{
+	optional int32 res = 1; 
+	repeated string applylist = 2;
+}
+
+//公会战膜拜
+message DseGlobalGuildBattleWorship
+{
+	optional int32 res = 1; //1今日已膜拜 2钻石不足
+	optional int32 type = 2;
+	optional DropList droplist = 3;
+}
+
+//晋级赛战报
+message DseGlobalGuildBattleBattleData
+{
+	optional string guildid = 1; //目标公会id
+	optional string enemyid = 2; //对手公会id
+	repeated GlobalGuildBattleMemberData guildlist		= 3; //目标成员数据
+	repeated GlobalGuildBattleNpcData guildnpc			= 4; //目标npc数据
+	repeated GlobalGuildBattleMemberData enemylist		= 5; //对手成员数据
+	repeated GlobalGuildBattleNpcData enemynpc			= 6; //对手npc数据
+	optional int32 res		= 7;
+	
+}
+
+message DseGlobalGuildBattleUpdateEnemy
+{
+	optional GlobalGuildBattleTipsData data =1; //
+}
+
+message DseGlobalGuildBattleChampionMemberList
+{
+	optional int64 guildid = 1; //公会id
+	repeated GlobalGuildBattleMemberData memberlist = 2;
+}

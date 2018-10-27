@@ -1,0 +1,9 @@
+//package core.io.protocol;
+
+message TaskNewbieData
+{
+	optional int32 id 		= 1;			// 任务ID
+	optional int32 type		= 2;			// 任务类型
+	optional int32 count	= 3;			// 任务计数
+	optional int32 state	= 4;			// 任务状态（0：未达成  1：已达成 2：已领奖）
+}

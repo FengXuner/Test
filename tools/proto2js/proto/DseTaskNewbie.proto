@@ -1,0 +1,19 @@
+import "DropList.proto";
+import "TaskNewbieData.proto";
+
+//package core.io.protocol;
+//新手任务相关
+
+// 同步数据
+message DseTaskNewbieSendData
+{
+	optional TaskNewbieData curtaskdata  = 1;	// 当前任务数据
+}
+
+// 领取奖励返回
+message DseTaskNewbieGetReward
+{
+	optional int32 res 					= 1;		//操作结果
+	optional TaskNewbieData curtaskdata	= 2;		//下个任务（如果下一个ID返回是0，说明已经完成最后一个任务）
+	optional DropList droplist  		= 3;		//掉落表
+}

@@ -1,0 +1,96 @@
+//package core.io.protocol;
+//军团战数据
+message GlobalGuildBattleData
+{
+	optional string guildid			= 1; //军团id
+	optional string guildname			= 2; //军团名
+	optional int32 score				= 3; //积分
+	optional string chiefname			= 4; //军团长名字
+	optional int32 medal				= 5; //徽章
+	optional int32 guildlevel			= 6; //军团等级
+	optional int32 membercount		= 7; //成员人数
+	optional int32 star				= 8; //星星数
+	optional int32 region				= 9; //分区
+	optional int32 wintimes			= 10; //胜场数
+	optional int32 supportnum			= 11; //支持者数量
+	optional int32 rank				= 12; //排名
+	optional int64 power				= 13; //加权分
+	optional int32 applycount			= 14; //报名人数
+	optional int64 totalpower				= 15; //总战力
+	optional int32 battlenotifytime = 16;//战术修改时间
+}
+//军团战数据
+message GlobalGuildBattleLog
+{
+	optional string name = 1;//名字
+	optional int32 star = 2;//星星数
+}
+//军团战成员数据
+message GlobalGuildBattleMemberData
+{
+	optional string uid					= 1; //uid
+	optional string name					= 2; //名字名
+	optional string power					= 3; //战斗力
+	optional int32 attacktimes			= 4; //已进攻次数
+	optional int32 buyattacktimes			= 5; //购买进攻次数
+	optional int32 model					= 6; //头像
+	optional int32 star					= 7; //星星数
+	repeated GlobalGuildBattleLog loglist		= 8; //最近三次记录
+	optional GlobalGuildBattleLog bestlog		= 9; //当日最佳
+	optional int32 pos					= 10; //职务
+	optional string battlerate			= 11; //战力评分
+	optional int32 level				= 12; //等级
+}
+//军团战成员数据
+message GlobalGuildBattleNpcData
+{
+	optional int32 id					= 1; //uid
+	optional int32 star					= 2; //星星数
+	repeated GlobalGuildBattleLog loglist		= 3; //最近三次记录
+	optional GlobalGuildBattleLog bestlog		= 4; //当日最佳
+	optional int32 npcid				= 5; //npc配表id
+}
+//军团战数据
+message GlobalGuildBattleRecord
+{
+	optional int32 type = 1;//1进攻 2防御 
+	repeated string param = 2;
+	optional int32 time = 3;
+	optional string battleid = 4;
+}
+//军团战结算数据
+message GlobalGuildBattleResultData
+{
+	optional string				winner				= 1; //获胜军团ID，轮空为0
+	optional int32				atkstar				= 2; //攻击方星星
+	optional int32				defstar				= 3; //防守方星星
+	optional GlobalGuildBattleBattleData	attack	= 4; //攻击方公会数据
+	optional GlobalGuildBattleBattleData	defence = 5; //防守方公会数据
+}
+//军团战战绩数据
+message GlobalGuildBattleHistory
+{
+	optional string			enemyname				= 1;
+	optional int32			result					= 2;
+	optional int32			region					= 3;
+}
+
+//晋级赛战报
+message GlobalGuildBattleBattleData
+{
+	optional string guildid			= 1; //军团id
+	optional string guildname			= 2; //军团名
+	optional int32 score				= 3; //积分
+	optional int32 medal				= 4; //徽章
+	optional int32 star					= 5; //星星数
+	optional int32 region				= 6; //分区
+	optional int32 applycount			= 7; //报名人数
+	optional int32 win					= 8; //胜负(-1负，1胜)
+}
+
+//公会绿点数据
+message GlobalGuildBattleTipsData
+{
+	repeated int64 guildid				= 1; //公会id
+	repeated int64 enemyid				= 2; //对手id
+}

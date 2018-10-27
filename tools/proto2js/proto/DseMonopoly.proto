@@ -1,0 +1,62 @@
+import "DropList.proto";
+import "DropData.proto";
+
+// 大富翁格子
+message MonopolyGrid
+{
+	optional int32		index							= 1;
+	optional int32		type							= 2; // 类型 1:增加金币  2:增加钻石  3:礼包  4:问号  5:在前进一定步数   6:空白
+}
+
+// 大富翁数据
+message DseMonopolyData
+{
+	optional int32			curindex						= 1; // 当前步数
+	optional int32			freenum							= 2; // 当日免费次数
+	repeated MonopolyGrid	gridlist						= 3; // 格子
+	optional int32			score							= 4; // 总积分
+	optional int32			buynum							= 5; // 付费次数(废弃)
+	repeated bool			scoreawardlist					= 6; // 积分领取(0开始，代表最低积分开始)
+	repeated bool			rechargeawardlist				= 7; // 充值领取道具(0开始，代表12之前的id)
+	optional int32			allrechargecash					= 8; // 活动总充值钻石
+}
+
+// 大富翁掷骰子
+message DseMonopolyThrowSieve
+{
+    optional int32		res								= 1; // 结果
+    optional int32		advancestep						= 2; // 前进步数
+    optional int32		gridtype						= 3; // 目标格子类型
+    optional int32		extraladvancestep				= 4; // 额外前进步数（只有5类型的时候才有值）
+    optional int32		curscore						= 5; // 此次掷骰子获得的积分
+    optional bool		double							= 6; // 是否翻倍（只有1/2/3类型才会翻倍）	
+    optional DropList	droplist						= 7; // 获得奖励（只有1/2/3/4类型才有奖励）			
+}
+
+// 大富翁翻倍
+message DseMonopolyDouble
+{
+	optional int32		res								= 1; // 结果
+	optional DropList	droplist						= 2; // 获得奖励		
+}
+
+// 大富翁前进
+message DseMonopolyAdvance
+{
+    optional int32		res								= 1; // 结果
+    optional int32		advancestep						= 2; // 前进步数
+}
+
+
+// 大富翁八次掷骰子
+message DseMonopolyEightThrowSieve
+{
+	optional int32		res								= 1; // 结果
+    optional int32		advancestep						= 2; // 前进步数
+    optional int32		extraladvancestep				= 3; // 额外前进步数
+    optional int32		score							= 4; // 获得的积分
+    optional int32		addcricle						= 5; // 新增圈数	
+    optional int32		costcash						= 6; // 消耗钻石
+    optional DropList	droplist						= 7; // 获得奖励
+    repeated int32		steplist						= 8; // 每次前进的部署
+}

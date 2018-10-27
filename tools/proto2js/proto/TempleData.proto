@@ -1,0 +1,13 @@
+//package core.io.protocol;
+//天空神殿数据
+
+message TempleData
+{
+    optional int32 id = 1; //卡牌id
+    optional int32 price = 2; //价格
+}
+
+message TempleList
+{
+	repeated TempleData templelist = 1;
+}

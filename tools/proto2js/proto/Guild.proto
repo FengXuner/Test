@@ -1,0 +1,91 @@
+//package core.io.protocol;
+//公会相关数据结构
+import "OtherPlayerData.proto";
+
+//申请加入公会的玩家数据
+message GuildApplyData
+{
+	optional string uid = 1;
+	optional string name = 2; //名字
+	optional int32 model = 3; //头像
+	optional string power = 4; //战斗力
+	optional int32 applytime = 5; //申请时间
+	optional int32 laststage = 6; //冒险进度
+	optional string battlerate = 7; //战斗评分
+}
+
+//查询公会时所用的数据
+message GuildData
+{
+	optional string guildid = 1;
+	optional string name = 2;
+	optional string declaration = 3; //宣言
+	optional int32 membercount = 4; //成员人数
+	optional int32 medal = 5; //徽章
+	optional string chiefname = 6; //会长名字
+	optional string totalpower = 7; //总战力
+	optional int32 level = 8; //公会等级
+	optional int32 powerlimit = 9; //战力限制
+	optional int32 verifyoption = 10; //审核选项
+	optional int32 score = 11; //各种公会排行榜使用的排名积分
+	optional string strscore = 12; //各种公会排行榜使用的排名积分(int64)
+	optional int32 region = 13; //区服
+	optional int32 wintimes = 14; //胜场
+	optional int32 playoffrank = 15;//晋级赛排名
+	optional int32 applycount = 16;//参战人数
+}
+
+message GuildList
+{
+	repeated GuildData guildlist = 1;
+}
+
+//公会日志
+message GuildLogData
+{
+	optional OtherPlayerData player = 1;
+	optional int32	time = 2;	//日志时间
+	optional int32	type = 3;	//操作类型
+	repeated string param = 4;	//参数 
+}
+
+message GuildLogList
+{
+	repeated GuildLogData guildloglist = 1;
+}
+
+//公会成员数据
+message GuildMemberData
+{
+	optional OtherPlayerData data = 1;
+	optional int32 contributetype = 2; //本日捐献类型
+	optional int32 lastcontributetime = 3; //上次捐献时间
+	optional int32 totalcontribute = 4; //总贡献
+}
+
+//公会Boss
+message GuildBoss
+{
+	optional int32 id = 1;
+	optional int64 power = 2;//剩余血量
+	optional int64 killeruid = 3;//击杀者uid
+	optional string killername = 4;//击杀者名字
+}
+
+//公会Boss奖励
+message GuildBossReward
+{
+	optional int32 id = 1; //奖励id
+	optional bool reward = 2; //是否已领取
+	optional int64 uid = 3; //领取者uid
+	optional string name = 4; //领取者名字
+}
+
+//公会Boss关卡
+message GuildBossStage
+{
+	optional int32 stageid = 1;//关卡id
+	repeated GuildBoss bosslist = 2;
+	repeated GuildBossReward rewardlist = 3;
+	repeated int64 uidlist = 4;
+}

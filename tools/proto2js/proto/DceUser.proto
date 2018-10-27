@@ -1,0 +1,77 @@
+//package core.io.protocol
+//用户相关操作
+
+message DceMonthCardData
+{//月卡信息
+}
+
+message DceFirstRechargeList
+{//首充列表 
+}
+
+message DceCreateRole
+{//创建角色
+	optional string name = 1;//名字
+	optional int32 modelid = 2;//模型id	
+}
+
+message DceScoutPlayer
+{//查看别人阵型
+	optional string uid = 1;
+	optional int32 battletype = 2;
+}
+
+message DceFirstRechargeReward
+{//首充礼包奖励
+}
+
+message DceReName
+{//重命名
+	optional string name = 1;
+}
+
+message DceSetModel
+{//修改模型id
+	optional int32 modelid = 1;
+}
+
+message DceSetLeader
+{//修改主角
+	optional int32 leaderid = 1;
+}
+
+message DceGuide
+{//新手引导
+	optional int32 step = 1;
+}
+
+message DceDetailGuide
+{//详细新手引导
+	optional int32 step = 1;
+}
+
+message DceFunctionGuide
+{//功能引导
+	optional int32 functionid = 1;
+}
+
+message DceSecondChargeReward
+{//续充领奖
+}
+
+message DceBuyStrengh
+{
+	optional int32 num = 1;
+}
+
+
+message DceCheckLimitRecharge
+{
+	optional int32 type = 1;
+	optional int32 id = 2;
+}
+
+message DceRechargeBroadcast
+{
+	optional int32 cashid = 1;
+}

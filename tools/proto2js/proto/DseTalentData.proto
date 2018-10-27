@@ -1,0 +1,19 @@
+
+//激活升级天赋
+message DseTalentUpgrade
+{
+	optional int32 id    = 1;//天赋表id
+	optional int32 res	 = 2;//返回值
+}
+
+message TalentData
+{
+	optional int32 talentid = 1;//天赋id
+	optional int32 level = 2;//等级
+}
+
+//天赋数据
+message DseTalentData
+{
+	repeated TalentData talentlist = 1;
+}

@@ -1,0 +1,30 @@
+//package core.io.protocol;
+import "SoulStoneData.proto";
+
+//批量装备魂石
+message DceSoulStone_Set
+{
+	optional string  id	   = 1;				//英雄唯一id
+	repeated string idlist = 2;				//唯一id列表
+}
+
+//批量卸下魂石
+message DceSoulStone_Discharge
+{
+	optional string  id	   = 1;				//英雄唯一id
+	repeated string idlist = 2;				//唯一id列表
+}
+
+//魂石分解
+message DceSoulStone_Resolve
+{
+	repeated string idlist = 1;				//唯一id列表
+	optional int32 resolvetype	   = 2; 	//分解类型   1：普通分解    2：高级分解
+}
+
+//魂石强化
+message DceSoulStone_Strengthen
+{
+	optional string id = 1;					//唯一id
+	optional int32 num = 2;					//强化次数
+}

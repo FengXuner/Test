@@ -1,0 +1,83 @@
+import "RelationData.proto";
+import "BattleData.proto";
+import "DropList.proto";
+import "OtherPlayerData.proto";
+//package core.io.protocol;
+
+//搜索玩家
+message DseFriendSearch
+{
+	optional OtherPlayerData result = 1;			//操作结果
+}
+
+//申请添加好友
+message DseFriendAdd
+{
+	optional string id = 1;						//玩家ID
+	optional int32 ret = 2;						//操作结果
+}
+
+//申请好友操作
+message DseFriendAddAction
+{
+	optional string id = 1;						//玩家ID
+	optional int32 type = 2;					//操作类型
+	optional int32 ret = 3;						//操作结果
+}
+
+//删除好友
+message DseDeleteFriend
+{
+	optional string uid = 1;					//玩家ID
+	optional int32 ret = 2;						//操作结果
+}
+
+//赠送友情点
+message DseSendFriendPoint
+{
+	optional string uid = 1;					//玩家ID
+	optional int32 ret = 2;						//操作结果
+	optional DropList droplist = 3;				//掉落
+}
+
+//收友情点
+message DseGetFriendPoint
+{
+	optional FriendPointData tar = 1;			//收取目标
+	optional int32 ret = 2;						//操作结果
+	optional DropList droplist = 3;				//掉落列表
+}
+
+//一键收友情点
+message DseGetAllFriendPoint
+{
+	optional int32 ret = 1;						//操作结果
+	optional DropList droplist = 2;				//掉落列表
+}
+
+//切磋
+message DseFriendChallenge
+{
+	optional string uid = 1;					//玩家ID
+	optional int32 ret = 2;						//操作结果
+	optional BattleResult result = 3;			//战斗结果
+}
+
+//好友数据
+message DseFriendData
+{
+	repeated OtherPlayerData friendlist = 1;	//好友列表
+	repeated RelationData invitedlist = 2;		//申请列表
+	repeated string sendpointlist = 3;			//已发友情点列表
+	repeated FriendPointData receivepointlist = 4;	//收到友情点列表
+	optional int32 receivepoint = 5;			//今日已收友情点
+	optional int32 invitedtime = 6;				//今日邀请次数
+	optional bool refuseinvite = 7;				//是否拒绝邀请好友
+	optional int32 totalpoint = 8;				//今日总友情点
+}
+
+//推荐好友
+message DseFriendRecommend
+{
+	repeated OtherPlayerData recommendlist = 1;	//推荐列表
+}

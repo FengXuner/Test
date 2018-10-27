@@ -1,0 +1,50 @@
+//package core.io.protocol;
+//世界大战
+import "BattleData.proto";
+
+//加入跨服阵营战
+message DceEnterGlobalCampBattle
+{
+	optional BattlePlayerData	battleplayer = 1;
+	optional int32			laststage = 2;
+	optional int32			viplevel = 3;
+	optional string			guildname = 4;
+	optional int32			modelid = 5;
+	optional int64			maxpower = 6;
+	optional int32			pictureID = 7[default = 1];
+	optional int32			level = 8;
+}
+
+//跨服战托管
+message DceGlobalCampBattleAutoPlay
+{
+	optional int32 autoplay = 1; //1开启 2关闭
+}
+
+//阵营战购买特权
+message DceGlobalCampBattleBuy
+{
+	optional int32	type = 1;//1侦查2嗜血3清除cd
+}
+
+//阵营战数据
+message DceGlobalCampBattleData
+{
+}
+
+//阵营战移动
+message DceGlobalCampBattleMove
+{
+	optional int32 target = 1;
+	optional BattlePlayerData	battleplayer = 2;
+}
+
+//阵营战结算数据
+message DceGlobalCampBattleResult
+{
+}
+
+message DceGlobalCampBattleBattlePlayer
+{
+	optional BattlePlayerData battleplayer = 1;
+}

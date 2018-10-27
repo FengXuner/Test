@@ -1,0 +1,19 @@
+//package core.io.protocol;
+//道具背包相关操作
+
+//道具操作
+message DceProp_Operation
+{
+    optional int32 type = 1;        //操作类型(1:使用, 2:出售)
+    optional int32 id = 2;			//道具ID
+    optional int32 num = 3;			//数量
+	optional int32 param1 = 4;		//使用参数1
+}
+
+//扩展背包
+message DceProp_ExtendBag
+{
+	optional int32 type = 1;		//背包类型
+	optional int32 num = 2;			//升级次数
+}
+

@@ -1,0 +1,10 @@
+//激活升级天赋
+message DceTalentUpgrade
+{
+	optional int32 id    = 1;//天赋表id
+}
+
+//请求玩家天赋数据
+message DceTalentData
+{
+}

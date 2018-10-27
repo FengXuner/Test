@@ -1,0 +1,23 @@
+//其他玩家数据
+message OtherPlayerData
+{
+	optional string uid = 1;
+	optional string name = 2; //名字
+	optional int32 modelid = 3; //模型id
+	optional string power = 4; //战力
+	optional int32 laststage = 5;	//冒险通关进度
+	optional int32 herolibrary = 6;	//图鉴收集数量
+	optional bool online = 7; //在线
+	optional int32 logintime = 8; //
+	optional string guildname = 9;	//公会名
+	optional int32 guildpos = 10;
+	optional int32 rank = 11; //排名
+	optional int32 seasonpoint = 12; //合战赛季点数
+	optional int32 score = 13; //通用积分
+	optional string strscore = 14; //通用int64类型积分
+	optional int32 camp = 15; //世界大战阵营
+	optional int32 region = 16; //区号
+	optional int32 pictureID = 17[default = 1];	// 头像底座ID
+	optional int32 level = 18; // 玩家等级
+	optional string battlerate = 19; //战斗评分
+} 

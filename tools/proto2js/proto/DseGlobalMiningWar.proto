@@ -1,0 +1,102 @@
+//package core.io.protocol;
+
+import "GlobalMiningWar.proto";
+import "BattleData.proto";
+import "DropList.proto";
+
+//请求数据
+message DseGlobalMiningWar_BaseData
+{
+	optional int32 selfindex = 1; //自己所在矿点索引
+	optional int32 ret = 2; //操作结果
+	repeated int32 buffidlist = 3; //buffid列表
+	repeated int32 bufftimelist = 4; //buff时间列表（buff的结束时间）
+	repeated string enemylist = 5; //仇敌列表
+	optional int32 protecttime = 6; //安全区受保护时间
+	optional int32 version	= 7; //活动版本
+}
+
+//请求矿区数据
+message DseGlobalMiningWar_MiningData
+{
+	optional int32 index = 1; //矿点索引
+	optional string uid = 2; //查找目标uid
+	optional int32 ret = 3; //操作结果
+	repeated GlobalMiningWar_Field fieldlist = 4; //矿点列表
+	optional int32 playerlevel = 5; //玩家等级（服务器用）
+}
+
+//占领矿点
+message DseGlobalMiningWar_Occupy
+{
+	optional int32 index = 1; //矿点索引
+	optional string uid = 2; //目标uid
+	optional int32 ret = 3; //操作结果
+	optional BattleResult battleresult = 5; //战斗结果
+	optional BattlePlayerData attacker = 6; //攻击方数据（服务器用）
+	optional BattlePlayerData defender = 7; //防守方数据（服务器用）
+	optional DropList normaldrop = 8; //普通掉落
+	optional DropList extradrop = 9; //额外掉落
+	optional string selfuid = 10; //自身uid(服务器用)
+	optional int32 protectedtime = 11; //安全区矿点受保护时间
+	optional bool iscost = 12; //是否需要消耗（服务器用）
+	optional int32 berobbedresource	= 13; //被抢资源数（防守方，服务器用）
+	optional int32 leftresource	= 14; //剩余资源数（防守方，服务器用）
+	optional int32 robbedresource = 15; //抢夺资源数（攻击方，服务器用）
+	optional int32 playerlevel = 16; //攻击玩家等级（服务器用）
+	optional int32 buffid = 17; //额外掉落buffid
+	optional int32 bufftime = 18; //buff时间
+	optional int32 defplayerlevel = 19; //防守玩家等级（服务器用）
+}
+
+//放弃矿点
+message DseGlobalMiningWar_GiveUp
+{
+	optional int32 ret = 1;	//操作结果
+	optional DropList normaldrop = 2; //普通掉落
+	optional DropList extradrop = 3; //额外掉落
+	optional int32 buffid = 4; //额外掉落buffid
+	optional int32 bufftime = 5; //buff时间
+	optional bool isactivite = 6; //是否是主动放弃（true  是    false  不是）
+	optional int32 berobbedresource	= 7; //被抢资源数（防守方，服务器用）
+	optional int32 leftresource	= 8; //剩余资源数（防守方，服务器用）
+	optional int32 robbedresource = 9; //抢夺资源数（攻击方，服务器用）
+	optional BattleResult battleresult = 10; //战斗结果(服务器用)
+	optional int32 fieldid = 11; //被动放弃后拥有的矿点
+}
+
+//更新个人数据到world(服务器用)
+message DseGlobalMiningWar_UpdateData
+{
+	optional int64 uid = 1;	//uid
+	optional string name = 2; //名字
+	optional int64 power = 3; //战力评分
+	optional int32 model = 4; //模型
+	optional int32 level = 5; //等级
+	optional string guildname = 6; //公会名字
+}
+
+//发送抢夺令数据
+message DseGlobalMiningWar_SendTokenData
+{
+	optional int32 tokennum = 1;			//抢夺令数量
+	optional int32 tokenrecovertime = 2;	//抢夺令开始恢复时间
+}
+
+//更新以太能源
+message DseGlobalMiningWar_UpdateResource
+{
+	optional string miningwarresourcenum = 1;	//以太能源数量
+}
+
+// 请求绿点
+message DseGlobalMiiningWar_CheckTips
+{
+	optional bool tips	= 1;  // 是否有绿点（true 有   false 没有）
+}
+
+// 更新仇敌列表
+message DseGlobalMiningWar_UpdateEnemy
+{
+	optional string enemyid  =  1;  //仇敌id
+}

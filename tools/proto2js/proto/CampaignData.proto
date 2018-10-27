@@ -1,0 +1,28 @@
+//package core.io.protocol;
+//合战数据结构
+
+//合战buff数据结构
+message CampaignBuffData
+{
+	optional int32				id					= 1;//buffid
+	optional int32				level				= 2;//bufflevel
+}
+
+//合战排行榜数据结构
+message CampaignRankListData
+{
+	optional string				uid					= 1;//uid
+	optional string				name				= 2;//名字
+	optional int32				seasonpoint			= 3;//当赛季赛点
+	optional int32				head				= 4;//头像
+	optional int32				time				= 5;//上榜时间
+	optional int32				maxlevel		 	= 6;//最高关卡
+	optional int32				pictureID			= 7;//底座ID
+}
+
+//合战失败时间数据结构
+message CampaignFailTimeData
+{
+	optional int32				id					= 1;//关卡id
+	optional int32				time				= 2;//下次可挑战时间
+}

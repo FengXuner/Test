@@ -1,0 +1,57 @@
+import "DropList.proto";
+import "BattleData.proto";
+import "CampaignData.proto";
+
+//package core.io.protocol;
+
+//合战挑战
+message DseCampaignChallenge
+{
+	optional int32 id    					= 1;	//挑战目标ID
+	optional int32 res						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落表
+	optional BattleResult result			= 4;	//战斗结果
+}
+
+//合战请求数据
+message DseCampaignRequireData
+{
+	optional int32 res						= 1;	//操作结果
+	optional int32 challengenum				= 2;	//剩余挑战次数
+	optional int32 challengebuynum			= 3;	//剩余挑战次数
+	optional int32 maxlevel					= 4;	//最高挑战等级
+	optional int32 totalpoint				= 5;	//总赛点
+	optional int32 exp						= 6;	//赛季经验
+	optional int32 seasonpoint				= 7;	//赛季赛点
+	repeated CampaignBuffData bufflist		= 8;	//buff列表
+	repeated CampaignFailTimeData failtimelist	= 9;//失败时间列表
+	optional int32 myrank					= 10;	//个人排行
+	optional int32 failnum					= 11;	//失败次数
+}
+
+//合战请求排行榜
+message DseCampaignRequireRanklist
+{
+	repeated CampaignRankListData ranklist	= 1;	//排行榜数据列表
+	optional int32 myrank					= 2;	//个人排行
+}
+
+//消耗钻石返还挑战失败的次数
+message DseCampaignRecoverChallengeNum
+{
+	optional int32 res						= 1;	//操作结果
+	optional int32 id						= 2;	//关卡ID
+}
+
+//合战购买buff
+message DseCampaignBuyBuff
+{
+	optional int32 buffid					= 1;	//buffid
+	optional int32 res						= 2;	//操作结果
+}
+
+//合战购买挑战次数
+message DseCampaignBuyChallengeNum
+{
+	optional int32 res						= 1;	//操作结果
+}

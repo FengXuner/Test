@@ -1,0 +1,41 @@
+//package core.io.protocol;
+//公会Boss
+
+//公会Boss数据
+message DceGuildBossData
+{
+	optional int32 stageid = 1;//为0时表示请求全部数据
+}
+
+//公会Boss挑战
+message DceGuildBossChallenge
+{
+	optional int32 stageid = 1; //关卡id
+	optional int32 bossid = 2;	//BossID [1,4]
+}
+
+//公会Boss重置
+message DceGuildBossReset
+{
+	optional int32 stageid = 1; //关卡id
+}
+
+//公会Boss购买挑战次数
+message DceGuildBossBuyTimes
+{
+	optional int32 times = 1; //购买次数
+}
+
+//公会Boss领取奖励
+message DceGuildBossGetReward
+{
+	optional int32 stageid = 1;//关卡id
+	optional int32 num = 2; //第几个奖励
+}
+
+//公会Boss捐献
+message DceGuildBossDonate
+{
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+}

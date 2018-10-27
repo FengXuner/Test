@@ -1,0 +1,6 @@
+message AchievementData
+{
+	optional int32 id = 1;			// 成就id
+	optional string count = 2;		// 成就完成计数
+	optional int32 rewardtime = 3;	// 已领奖次数
+} 

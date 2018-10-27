@@ -1,0 +1,89 @@
+//package core.io.protocol;
+//公会
+
+//创建公会
+message DceCreateGuild
+{
+	optional string name = 1; //公会名字
+	optional int32 medal = 2; //徽章ID
+	optional int32 powerlimit = 3; //战力限制
+	optional int32 verifyoption = 4; //验证选项 1需要验证 2不需要验证
+}
+
+//修改公会公共数据操作
+message DceModifyGuild
+{
+	optional string name = 1; //公会名字
+	optional int32 medal = 2; //徽章ID
+	optional int32 powerlimit = 3; //战力限制
+	optional int32 verifyoption = 4; //验证选项 1需要验证 2不需要验证
+	optional string delcaration = 5; //宣言
+	optional string notification = 6; //公告
+}
+
+//解散公会
+message DceGuildDismiss
+{
+}
+
+//申请加入公会
+message DceGuildApply
+{
+	optional string guildid = 1;
+}
+
+//申请加入本公会人员列表
+message DceGuildApplyList
+{
+}
+
+//公会数据
+message DceGuildData
+{
+}
+
+//公会人事相关操作
+message DceGuildOperation
+{
+	optional string uid = 1;
+	optional int32 type = 2;
+	optional int32 subtype = 3;
+}
+
+//请求公会列表
+message DceGuildList
+{
+}
+
+//请求公会成员列表
+message DceGuildMemberList
+{
+}
+
+//搜索公会信息
+message DceSearchGuild
+{
+	optional string id = 1;//公会ID
+}
+
+//已申请公会列表
+message DceApplyList
+{
+}
+
+//公会日志
+message DceGuildLogList
+{
+}
+
+//公会科技升级
+message DceGuildScienceUpgrade
+{
+	optional int32 scienceid = 1;
+}
+
+//公会基础信息
+message DceGuildInfo
+{
+	optional string guildid = 1;
+}

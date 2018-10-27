@@ -1,0 +1,9 @@
+//package core.io.protocol;
+//道具数据结构
+
+//道具数据结构
+message PropData 
+{
+	optional int32 id = 1;					//道具表ID
+	optional int32 num = 2;					//道具数量
+}

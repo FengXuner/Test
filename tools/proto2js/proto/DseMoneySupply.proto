@@ -1,0 +1,29 @@
+//package core.io.protocol;
+//金币补给
+
+//免费金矿数据
+message FreeMoneySupplyData
+{
+	optional int32				id					= 1;//序号
+	optional int32				lastcalctime		= 2;//上次领取时间
+}
+
+//金币补给获取金币
+message DseMoneySupplyGetMoney
+{
+	optional int32			type	= 1;//类型，1为免费，2为付费单次，3为付费十次
+	optional int32			index	= 2;//序号
+	repeated string			money	= 3;//获得金币
+	optional int32			res		= 4;//结果
+	optional int32			times	= 5;//实际血钻领取次数
+	repeated int32			combo	= 6;//暴击倍数
+	optional int32			freetime	= 7;//血钻金矿免费次数
+}
+
+//金币补给数据
+message DseMoneySupplyData
+{
+	repeated FreeMoneySupplyData		freelist	= 1;//免费金矿列表
+	optional int32						times		= 2;//付费已购买次数
+	optional int32						freetime	= 3;//血钻金矿免费次数
+}

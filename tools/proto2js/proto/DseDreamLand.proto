@@ -1,0 +1,40 @@
+import "DropList.proto";
+import "DreamLandLayerData.proto";
+import "BattleData.proto";
+//package core.io.protocol;
+
+//请求数据
+message DseDreamLand_Data
+{
+	optional int32				freecount			= 1; // 免费骰子数
+	optional DreamLandLayerData	layerlist			= 2; // 每层数据，字段修改，国服秘境只有一层
+	optional int32				recovertime			= 3; // 开始恢复免费骰子数时间	
+}
+
+//掷骰前进
+message DseDreamLand_Advance
+{
+	optional int32 advancenum						= 1; // 前进数目
+	optional int32 ret								= 2; // 操作结果
+	repeated int32 gridlist							= 3; // 格子类型列表
+}
+
+//当前事件选择
+message DseDreamLand_EventChoose
+{
+	optional int32 option							= 1; // 选项
+	optional int32 param1							= 2; // 参数1
+	optional int32 ret								= 3; // 操作结果
+	optional DropList droplist						= 4; // 掉落列表
+	optional BattleResult result					= 5; // 战斗结果
+}
+
+//扫荡
+message DseDreamLand_Sweep
+{
+	optional int32 sweepnum							= 1; //扫荡次数
+	optional int32 ret								= 2; //操作结果
+	optional int32 successnum						= 3; //成功次数
+	optional DropList droplist						= 4; //掉落列表
+	optional DreamLandLayerData	layerdata			= 5; //本层数据
+}

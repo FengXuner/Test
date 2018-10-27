@@ -1,0 +1,74 @@
+import "DropList.proto";
+import "BattleData.proto";
+//package core.io.protocol;
+
+//请求Boss数据
+message DseLocalWorldBoss_BossData
+{
+	optional int32 level					= 1;	//boss等级
+	optional string power					= 2;	//boss血量
+}
+
+//伤害记录结构
+message LocalWorldBoss_DamageData
+{
+	optional int32 level					= 1;	//boss等级
+	optional string damage					= 2;	//伤害
+	optional int32 time						= 3;	//时间
+}
+
+//boss击杀记录结构
+message LocalWorldBoss_KillData
+{
+	optional string			uid				= 1;	//uid
+	optional int32			level			= 2;	//击杀boss等级
+	optional int32			time			= 3;	//击杀时间
+	optional string			name			= 4;	//玩家名
+	optional string			guildname		= 5;	//公会名
+}
+
+//请求数据
+message DseLocalWorldBoss_Data
+{
+	optional int32				challengetime		= 1; //挑战次数
+	optional int32				buychallengetime	= 2; //购买挑战次数
+	optional string				totaldamage			= 3; //总伤害
+	repeated int32				honorreward			= 4; //荣誉奖励领取列表
+	repeated LocalWorldBoss_DamageData	damagelist	= 5; //伤害记录
+	optional int32				bufflevel			= 6; //购买buff层数
+	repeated int32				herolist			= 7; //特权佣兵列表
+	repeated LocalWorldBoss_KillData	killlist	= 8; //击杀记录
+	optional string 			guilddamage			= 9; //工会总伤害
+	optional int32				guildrank			= 10;//公会总伤害排名
+}
+
+//挑战
+message DseLocalWorldBoss_Battle
+{
+	optional int32 level					= 1;	//boss等级
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落表
+	optional BattleResult result			= 4;	//战斗结果
+	optional string damage					= 5;	//本次伤害
+}
+
+//领取荣誉奖励
+message DseLocalWorldBoss_HonorReward
+{
+	optional int32 id						= 1;	//id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落表
+}
+
+//购买buff
+message DseLocalWorldBoss_BuyBuff
+{
+	optional int32 ret						= 1;	//操作结果
+}
+
+//购买挑战次数
+message DseLocalWorldBoss_BuyCount
+{
+	optional int32 num						= 1;	//数量
+	optional int32 ret						= 2;	//操作结果
+}

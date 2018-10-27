@@ -1,0 +1,46 @@
+import "PropData.proto";
+import "DropList.proto";
+
+//package core.io.protocol;
+//道具相关操作结果下发
+
+//道具操作结果
+message DseProp_Operation 
+{
+	optional int32 returnvalue	= 1;			//返回值
+	optional int32 propid		= 2;			//操作道具ID
+	optional DropList droplist	= 3;			//道具增量变化
+	optional int32 type			= 4;			//操作类型
+}
+
+//道具数量更新
+message DseProp_UpdatePropData
+{
+	repeated PropData proplist = 1;				//道具列表
+}
+
+//道具数量更新
+message DseProp_UpdatePropLimitData
+{
+	repeated PropLimitData limitlist = 1;		//限制道具使用次数列表
+}
+
+//道具使用次数
+message PropLimitData
+{
+	optional int32 id			= 1;			//道具id
+	optional int32 count		= 2;			//使用次数
+}//扩展背包操作结果
+message DseProp_ExtendBag
+{
+	optional int32 returnvalue = 1;				//返回值
+}
+
+//背包当前大小
+message DseProp_UpdateBagSize
+{
+	optional int32 NormalBagSize	= 1;		//普通背包大小
+	optional int32 AdventureBagSize = 2;		//挂机推图背包大小
+}
+
+

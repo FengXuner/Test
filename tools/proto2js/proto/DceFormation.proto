@@ -1,0 +1,41 @@
+//package core.io.protocol;
+//阵型
+
+message DceFormationList
+{//阵型
+	optional int32 formationid = 1;//阵型id
+}
+
+message DceSetDefaultFormation
+{//设置使用的阵型id
+	optional int32 formationid = 1;//阵型id
+}
+
+message DceSetFormation
+{//修改阵型
+	optional int32 formationid = 1;//阵型id
+	optional int32 pos = 2;//位置
+	optional string id = 3;//唯一id
+}
+
+message DceSetFormationList
+{//整体修改阵型
+	optional int32 formationid = 1;//阵型id
+	repeated string formationlist = 2;//阵型列表
+}
+
+message DceSetFormationName
+{//设置阵型名
+	optional int32 formationid = 1;//阵型id
+	optional string name = 2;
+}
+
+message DceSetBattleFormation
+{//设置战斗类型对应阵型
+	optional int32 battletype = 1;//战斗类型
+	optional int32 formationid = 2;//阵型id
+}
+
+message DceUpdateFormationPower
+{//刷新阵容战力
+}

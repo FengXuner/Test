@@ -1,0 +1,19 @@
+//package core.io.protocol;
+
+import "ShopBuyLimitData.proto";
+
+//购买商店商品
+message DseBuy
+{
+	optional int32 id    = 1;
+	optional int32 count = 2;
+	optional int32 res   = 3;//1表中未找到id,2钻石不足
+	optional bool isauto = 4;//是否自动购买
+}
+
+//下发商店购买次数
+message DseShopBuyLimit
+{
+	repeated ShopBuyLimitData list = 1;//次数列表
+}
+

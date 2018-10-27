@@ -1,0 +1,135 @@
+//package core.io.protocol;
+// 远征攻击
+
+import "BattleData.proto";
+import "DropList.proto";
+import "ExpeditionData.proto";
+
+// 远征攻击
+message DseExpedition_Attack
+{
+	optional int32		index		= 1;	// 索引(第几个对手)
+	optional int32		difficult	= 2;	// 难度(1：简单   2：普通   3：困难)
+	optional string		atkuid		= 3;	// 攻击uid
+	optional string		defuid		= 4;	// 防御uid
+	optional int32		ret			= 5; 	// 操作结果
+	optional BattleResult	battleresult	= 6;	// 战斗数据
+	optional int32		star		= 7;	// 获得星星
+	optional int32		rate		= 8;	// 星星倍率
+	optional int32		allstar		= 9;	// 总星星
+	optional DropList	droplist	= 10;	// 战场掉落
+	optional ExpeditionEnemy enemy	= 11;	// 对手数据(服务器用)
+	optional ExpeditionRandBuff randbuff = 12;	// 随机buff
+}
+
+// 开启宝箱
+message DseExpedition_BoxOpen
+{
+	optional int32		index		= 1;	// 第几关的箱子
+	optional int32		opennums	= 2;	// 开启次数（免费和付费总共，原则：先免费，后付费）
+	optional bool		skip		= 3;	// 跳过
+	optional int32		ret			= 4;	// 结果
+	optional DropList	droplist	= 5;	// 奖励
+}
+
+// 购买buff
+message DseExpedition_BuyBuff
+{
+	optional int32		index		= 1;	// 关卡
+	optional int32		buffid		= 2;	// buff ID
+	optional bool		skip		= 3;	// 跳过
+	optional int32		ret			= 4;	// 结果
+}
+
+// 远征购买挑战次数
+message DseExpedition_BuyCount
+{
+	optional int32		num			= 1;	//购买次数
+	optional int32		ret			= 2;	//结果
+}
+
+// 更新个人战力(服务器用)
+message DseExpedition_UpdateSelfPower
+{
+	optional int64		uid			= 1;	//更新个人战力
+	optional int64		power		= 2;	//最高战力
+	optional string		name		= 3;	//名字
+	optional int32		model		= 4;	//模型
+	optional int64		curpower	= 5;	//当前阵容战力
+	optional bool		force		= 6;	//强制更新
+	optional int64		battlerate 	= 7;	//战斗评分
+}
+
+// 对手数据
+message DseExpedition_EnemyData
+{
+	optional int32		index		= 1;	// 索引
+	optional int32		ret			= 2;	// 操作结果
+	repeated ExpeditionEnemy enemylist = 3;	// 对手列表
+}
+
+// 初始化远征uid列表
+message DseExpedition_InitEnemyList
+{
+	optional int64		uid			= 1;	//uid
+	optional int64		power		= 2;	//战力
+	repeated Expedition_InitEnemyListData	enemylist	= 3;	//对手列表
+	optional int32		ret			= 4;	//操作结果
+	optional bool		send		= 5;	//是否给客户端回复结果(服务器用)
+	optional bool		clearotherdata = 6;	//是否重置其他数据
+	optional int32		rank		= 7;	//个人排名
+}
+
+// 请求远征界面数据
+message DseExpedition_Data
+{
+	optional int32		index		= 1;	// 对手索引(第几关)
+	optional int32		challengetimes	= 2;	// 挑战次数
+	optional int32		ownstar		= 3;	// 总拥有星星数
+	optional int32		usedstar	= 4;	// 剩余星星数
+	repeated int32		buffid		= 5;	// buffid列表
+	repeated int32		bufflevel	= 6;	// bufflevel列表
+	optional int32		buytimes	= 7;	// 付费购买次数
+	optional int32		resettimes	= 8;	// 重置次数
+	repeated ExpeditionRandBuff randbuff = 9;	//随机buff
+	repeated ExpeditionBox boxopenlist = 10;	//宝箱开启列表
+	optional int32		refreshtime = 11;	// 刷新对手次数
+	optional int32		buyrefresh 	= 12;	// 购买刷新对手次数
+}
+
+// 扫荡每一关的奖励
+message ExpeditionSweepAward
+{
+	optional int32			index			= 1; // 关号
+	optional DropList		droplist		= 2; // 奖励
+}
+
+// 奇数关的免费箱子
+message ExpeditionSweepBoxAward
+{
+	optional int32			index				= 1; // 关号
+	optional DropList		droplist			= 2; // 奖励
+}
+
+// 扫荡
+message DseExpedition_Sweep
+{
+	optional int32						ret				= 1;
+	repeated ExpeditionSweepAward		awardlist		= 2; // 每一关奖励
+	repeated ExpeditionSweepBoxAward	boxaward		= 3; // 每一个免费箱子奖励
+}
+
+//请求对手阵容数据
+message DseExpedition_EnemyFomation
+{
+	optional string		uid			= 1;	//uid
+	optional int32		ret			= 2;	//操作结果
+	optional BattlePlayerData data	= 3;	//对手数据
+	optional int64		fromuid		= 4;	//来源uid(服务器用)
+}
+
+message DseExpedition_BuyRefreshTime
+{
+	optional int32		num			= 1;	//购买次数
+	optional int32		ret			= 2;	//操作结果
+}

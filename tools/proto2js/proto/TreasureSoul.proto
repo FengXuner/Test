@@ -1,0 +1,8 @@
+//package core.io.protocol;
+//宝具之魂
+
+message TreasureSoul 
+{
+	optional int32 id = 1;					//ID
+	optional int32 num = 2;				//数量
+}

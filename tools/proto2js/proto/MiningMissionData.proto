@@ -1,0 +1,17 @@
+//package core.io.protocol;
+//挖矿任务数据
+
+message MiningMissionCompass
+{
+	optional int32 destinationfirstpos 	= 1;
+	optional int32 destinationsecondtpos = 2;
+}
+
+message MiningMissionData
+{
+	optional int32 id 	= 1;						//任务表ID
+	optional int32 quality  = 2;					//任务品质
+	optional int32 state 	= 3;					//任务状态(0:未接取  1：接取未完成 2：接取已达成 3:达成已领奖)
+	optional int32 count	= 4;					//任务计数
+	optional MiningMissionCompass compassdata = 5;	//指南针任务记录的两个点
+}

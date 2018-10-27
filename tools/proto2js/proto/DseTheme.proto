@@ -1,0 +1,70 @@
+//package core.io.protocol;
+//主体关卡
+
+import "BattleData.proto";
+import "DropList.proto";
+import "ThemeData.proto";
+
+//请求数据
+message DseTheme_Data
+{
+	optional int32				energy				= 1; //体力
+	optional int32				energytime			= 2; //体力刷新时间
+	optional int32				buyenergy			= 3; //购买体力次数
+	repeated ThemeStageData		stagelist			= 4; //节点列表
+	repeated ThemeMissionData	missionlist			= 5; //任务列表
+	repeated ThemeExchangeData	exchangelist		= 6; //兑换列表
+}
+
+message DseTheme_UpdateMission
+{
+	optional ThemeMissionData	data				= 1; //任务数据
+}
+
+//同步体力数据
+message DseTheme_UpdateEnergy
+{
+	optional int32		energy		= 1;	// 体力
+	optional int32		energytime	= 2;	// 体力刷新时间
+}
+
+//挑战
+message DseTheme_Challenge
+{
+	optional int32		id			= 1;	// 关卡id
+	optional int32		ret			= 2;	// 操作结果
+	optional BattleResult	result	= 3;	// 战斗数据
+	optional DropList	droplist	= 4;	// 掉落列表
+}
+
+//购买体力
+message DseTheme_BuyEnergy
+{
+	optional int32		num			= 1;	// 购买次数
+	optional int32		ret			= 2;	// 操作结果
+}
+
+//购买挑战次数
+message DseTheme_BuyChallengeTime
+{
+	optional int32		id			= 1;	// 关卡id
+	optional int32		num			= 2;	// 购买次数
+	optional int32		ret			= 3;	// 操作结果
+}
+
+//领取任务奖励
+message DseTheme_MissionReward
+{
+	optional int32		type		= 1;	// 任务类型
+	optional int32		pos			= 2;	// 档位
+	optional int32		ret			= 3;	// 操作结果
+	optional DropList	droplist	= 4;	// 掉落列表
+}
+
+//兑换奖励
+message DseTheme_Exchange
+{
+	optional int32		id			= 1;	// 兑换id
+	optional int32		ret			= 2;	// 操作结果
+	optional DropList	droplist	= 3;	// 掉落列表
+}

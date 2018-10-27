@@ -1,0 +1,23 @@
+//package core.io.protocol;
+
+//矿区洞穴挑战
+message DceMiningCaveChallenge
+{
+	optional int32 levelid    				= 1;	//洞穴关卡id
+}
+
+//矿区洞穴购买挑战次数
+message DceMiningCaveBuyCount
+{
+	optional int32 baseid					= 1;	//洞穴id
+}
+
+//重生boss开启
+message DceRebornBossOpen
+{
+}
+
+//重生boss挑战
+message DceRebornBossChallenge
+{
+}

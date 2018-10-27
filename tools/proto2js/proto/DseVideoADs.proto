@@ -1,0 +1,7 @@
+//package core.io.protocol;
+
+message DseVideoADs
+{
+	optional int32 looktimes						= 1; //观看次数
+	optional int32 time								= 2; //时间
+}

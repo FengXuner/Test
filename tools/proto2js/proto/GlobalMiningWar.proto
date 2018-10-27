@@ -1,0 +1,26 @@
+//package core.io.protocol;
+//矿区争夺数据
+
+//矿区排行个人信息
+message GlobalMiningWar_PlayerRankData
+{
+	optional string uid 						= 1; //uid
+	optional int32 modelid						= 2; //模型ID
+	optional string name						= 3; //名字
+	optional string power 						= 4; //战力评分
+	optional int32 resource 					= 5; //资源产出
+}
+
+//矿点信息
+message GlobalMiningWar_Field
+{
+	optional int32 index						= 1; //索引
+	optional string curuid						= 2; //当前归属玩家uid
+	optional int32 time							= 3; //当前玩家挖掘时间
+	optional string curname						= 4; //当前归属玩家名字
+	optional int32 type							= 5; //矿点类型
+	optional int32 region						= 6; //服务器id
+	optional string guildname					= 7; //公会名字
+	optional string power						= 8; //战力评分
+	optional int32 bufftime						= 9; //加成buff时间
+}

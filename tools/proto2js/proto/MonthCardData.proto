@@ -1,0 +1,9 @@
+//package core.io.protocol;
+//月卡数据
+
+message MonthCardData
+{
+	optional int32			monthcardid				= 1; //月卡id
+	optional int32			monthcarddate			= 2; //月卡有效日期
+	optional bool			monthcardreceive		= 3; //当日是否已领取月卡奖励
+}

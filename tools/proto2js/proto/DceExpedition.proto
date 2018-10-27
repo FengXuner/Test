@@ -1,0 +1,70 @@
+//package core.io.protocol;
+//远征
+import "ExpeditionData.proto";
+
+// 远征攻击
+message DceExpedition_Attack
+{
+	optional int32		index		= 1;	// 索引(第几个对手)
+	optional int32		difficult	= 2;	// 难度(1：简单   2：普通   3：困难)
+	optional string		atkuid		= 3;	// 攻击uid
+	optional string		defuid		= 4;	// 防御uid 
+}
+
+// 开启宝箱
+message DceExpedition_BoxOpen
+{
+	optional int32		index		= 1;	// 第几关的箱子
+	optional int32		opennums	= 2;	// 开启次数（免费和付费总共，原则：先免费，后付费）
+	optional bool		skip		= 3;	// 跳过
+}
+
+// 购买buff
+message DceExpedition_BuyBuff
+{
+	optional int32		index		= 1;	// 关卡
+	optional int32		buffid		= 2;	// buff ID
+	optional bool		skip		= 3;	// 跳过
+}
+
+// 远征购买挑战次数
+message DceExpedition_BuyCount
+{
+	optional int32		num			= 1;	//购买次数
+}
+
+// 对手数据
+message DceExpedition_EnemyData
+{
+	optional int32			index		= 1;	// 索引
+}
+
+// 请求远征界面数据
+message DceExpedition_Data
+{
+}
+
+// 扫荡
+message DceExpedition_Sweep
+{
+
+}
+
+//请求对手阵容数据
+message DceExpedition_EnemyFomation
+{
+	optional string		uid			= 1;	//uid
+}
+
+// 初始化远征uid列表
+message DceExpedition_InitEnemyList
+{
+	optional string		uid			= 1;	//uid
+	repeated Expedition_InitEnemyListData	enemylist	= 2;	//对手列表(服务器用)
+	optional bool		clearotherdata = 3;	//是否重置其他数据
+}
+
+message DceExpedition_BuyRefreshTime
+{
+	optional int32		num			= 1;	//购买次数
+}

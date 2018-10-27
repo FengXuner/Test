@@ -1,0 +1,6 @@
+message PictureFrameData
+{
+	optional int32				id					= 1;// 头像ID
+	optional int32				type				= 2;// 头像开启状态（0：未激活 1：已激活）
+	optional int32				mulCondition		= 3;// 多条件状态（用位来标记）
+}

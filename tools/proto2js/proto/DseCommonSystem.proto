@@ -1,0 +1,237 @@
+//package core.io.protocol;
+//通用系统
+import "BattleData.proto";
+import "DropList.proto";
+import "Guild.proto";
+import "OtherPlayerData.proto";
+
+//广播(废弃)
+message DseBroadcast
+{
+	optional string content               = 1; //内容
+	optional int32 type                   = 2; //1后台发送2条件触发
+	optional int32 id					  = 3; //配表ID
+	repeated string param				  = 4; //内容参数	
+}
+
+message MailData
+{
+	optional string      	 id            			= 1;
+	optional int32      	 time      				= 2;
+	optional int32	      	 mailid    				= 3;//mailid=0表示为通过GM发送,paramlist中只有一个值, mailid为其它时为从表中获取
+	repeated string			 paramlist				= 4;
+	optional DropList		 droplist  				= 5;//奖励列表
+	optional bool 			 read 					= 6;//是否已读
+	optional bool  			 reward 				= 7;//是否已经领奖
+	optional int32			 action 				= 8;//操作
+}
+
+//增加邮件
+message DseAddMail
+{
+	optional MailData mail 	   = 1;
+	optional int32	  type	   = 2; //邮件类型
+}
+
+//邮件列表
+message DseMailList
+{
+	repeated MailData maillist = 1;
+	optional int32    type = 2; //邮件类型
+}
+
+//发送邮件
+message DseSendMail
+{
+	optional int32 result = 1;
+}
+
+//邮件操作
+message DseMailAction
+{
+	optional string id = 1;
+	optional int32 type = 2;
+	optional int32 action = 3;
+	optional int32 res = 4;
+}
+
+message DseGetMailReward
+{//领取邮件奖励
+	optional string id = 1; //邮件唯一id
+	optional int32 type = 2; //邮件类型
+	optional int32 res = 3; //结果
+}
+
+message DseBattleMailReplay 
+{//战报邮件回放
+	optional int32 res = 1;
+	optional string id = 2;
+}
+
+message DseBattleReplay
+{
+	optional BattleResult battleresult = 1;
+}
+
+message DseReadMail
+{//标记邮件已读
+	optional string id = 1; //邮件唯一id
+	optional int32 type = 2; //邮件类型
+	optional bool all = 3; //全部标记已读
+}
+
+message DseHeartbeat 
+{//客户端心跳
+	optional int32 time = 1;
+}
+
+message DseActiveTip
+{//客户端红点提示
+	repeated bool maillist = 1;//邮件
+	optional bool sevenday = 2; //七日活动
+	repeated int32 activityaction = 3;//活跃活动列表
+	optional bool monopoly = 4;//大富翁
+	repeated int32 newbieactivity = 5;//新手活跃活动
+	optional bool limithero = 6; //限时佣兵
+	optional bool godbless = 7;//神之祝福
+	optional bool newlghero = 8;//新LG抽奖
+	optional bool challenge = 9;//挑战关卡
+	optional bool slotmachine = 10;//幸运老虎机
+	optional bool cyclerecharge = 11;//循环返利
+	optional bool limitequip = 12;//秘境工坊
+	optional bool localworldboss = 13;//世界boss
+	optional bool millitarysupply = 14;//军资整备
+	//optional bool prayreward = 15;//6元充值
+	optional bool moneysupply = 16;//金币补给
+	optional bool singlecash = 17;//单笔充值
+	optional bool limittreasure = 18;//限时宝具
+	optional bool halfmonth	= 19;//半月狂欢
+	optional bool luckycat = 20; //开运招财猫
+	optional bool highcontract = 21;//高级契约
+	optional bool expeditionreset = 22;//远征重置
+	optional bool globalguildbattlemain = 23;//工会战主界面绿点
+	optional bool globalguildbattleactivity = 24;//工会战活动绿点
+	optional bool levelreward = 25;//等级奖励
+	optional bool newrechargeeveryday = 26;//新每日充值
+	optional bool newbieserverrank = 27;//开服竞赛
+	optional bool grownup = 28;//成长计划
+	optional bool rollherogift = 29;//累计抽取英雄奖励
+	optional bool rolltreasuregift = 30;//累计抽取宝具奖励
+	optional bool newtask = 31;	//新手任务
+	optional bool onlinereward = 32; //在线奖励
+	optional bool newbielocalworldboss = 33;//开服boss排行
+	optional bool magicheroexchange = 34;//奥术召唤兑换
+	optional bool magictreasureexchange = 35;//神铸之藏兑换
+	optional bool luckywheel = 36;//幸运大转盘绿点
+	optional bool activitycat = 37;//招财猫活动绿点
+	optional bool moneyfly = 38;//让红包飞
+	//optional bool expedition = 39;//远征绿点
+}
+
+message AwardData
+{
+	optional string			 id						= 1;
+	optional int32			 tableid				= 2;
+	optional int32			 time					= 3;
+	optional DropList		 droplist  				= 4;
+	repeated string			 param					= 5;
+}
+
+//领奖中心数据
+message DseAwardCenter
+{
+	repeated AwardData awardlist = 1;
+}
+
+//领取领奖中心奖励
+message DseGetAward
+{
+	repeated string idlist = 1;
+	optional bool all = 2;
+	optional int32 res = 3; //0成功，1没有该项奖励
+	optional DropList droplist = 4;//掉落列表
+}
+
+message DseAddAwardCenter
+{
+	optional AwardData award = 1;
+}
+
+//通知客户端setnewday
+message DseSetNewDay
+{
+}
+
+//下发排行榜数据
+message DseRankData
+{
+	optional int32 type = 1;					//排行榜类型
+	repeated OtherPlayerData playerlist = 2;		//玩家列表
+	repeated GuildData guildlist = 3;			//公会列表
+	optional int32 seasonpoint = 4;				//玩家赛季赛点
+	optional int32 battlerank = 5;				//排位赛自身排名
+}
+
+//跨服排行榜数据
+message DseGlobalRankData
+{
+	optional int32 type = 1;					//排行榜类型
+	repeated OtherPlayerData playerlist = 2;		//玩家列表
+	repeated GuildData guildlist = 3;			//公会列表
+	optional int32 battlerank = 4;				//排位赛自身排名
+	optional int32 globalid = 5;				
+	optional int32 rank = 6;					//排名
+	optional string score = 7; 					//通用积分
+	optional int32 playerlevel = 8;				//玩家等级（分等级排行榜用）
+}
+
+//请求玩家数据
+message DseOtherPlayerData
+{
+	optional string uid = 1;					//uid
+	optional OtherPlayerData data = 2;			//数据
+}
+
+//VIP数据下发
+message DseVIPData
+{
+	optional int32 totalrecharge = 1;			//总充值
+	optional int32 viplevel = 2;				//当前vip等级
+	optional bool dailyreward = 3;				//当日是否领奖
+	repeated int32 vipgiftlist = 4;				//已购VIP礼包列表
+}
+
+//VIP礼包购买
+message DseVIPGiftBuy
+{
+	optional int32 viplevel = 1;				//购买等级
+	optional int32 ret = 2;						//购买结果
+	optional DropList droplist = 3;				//掉落列表
+}
+
+//VIP每日奖励领取
+message DseVipDailyReward
+{
+	optional int32 ret = 1;						//购买结果
+	optional DropList droplist = 2;				//掉落列表
+}
+
+//同步总充值
+message DseUpdateTotalRecharge
+{
+	optional int32 totalrecharge = 1;			//总充值
+}
+
+//实名认证信息
+message DseVerifiedData
+{
+	optional bool verified = 1;					//是否进行过实名认证
+	optional string birthday = 2; 				//生日字符串
+}
+
+
+//实名认证
+message DseVerified
+{
+	optional int32 ret = 1;						//结果
+}

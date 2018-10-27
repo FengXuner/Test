@@ -1,0 +1,11 @@
+//package core.io.protocol;
+
+//签到
+message DceCheckIn
+{
+}
+
+//领取累计奖励
+message DceCheckInTotalReward
+{
+}

@@ -1,0 +1,66 @@
+//package core.io.protocol;
+//阵型
+
+message DseDefaultFormationID
+{
+	optional int32 formationid = 1;//阵型id
+}
+
+message DseFormationList
+{//阵型
+	optional int32 formationid = 1;//阵型id
+	repeated string formationlist = 2;//阵型数据
+	optional int32 weaponid = 3;//宿命武器
+	optional string name = 4;//阵型名字
+	optional string power = 5;//阵容战力
+	optional int64	battlerate = 6; //战力评分
+}
+
+message DseSetDefaultFormation
+{//设置使用的阵型id
+	optional int32 formationid = 1;//阵型id
+	optional int32 res = 2;//结果
+}
+
+message DseSetFormation
+{//修改阵型
+	optional int32 formationid = 1;//阵型id
+	optional int32 pos = 2;//位置
+	optional string id = 3;//唯一id
+	optional int32 res = 4;//结果
+}
+
+message DseSetFormationList
+{//整体修改阵型
+	optional int32 formationid = 1;//阵型id
+	optional int32 res = 2;//结果
+}
+
+message DseSetFormationName
+{//设置阵型名
+	optional int32 formationid = 1;//阵型id
+	optional string name = 2;
+	optional int32 res = 3;
+}
+
+message DseSetBattleFormation
+{//设置战斗类型对应阵型
+	optional int32 battletype = 1;//战斗类型
+	optional int32 formationid = 2;//阵型id
+	optional int32 res = 3;
+}
+
+message BattleFormation
+{
+	optional int32 battletype = 1;//战斗类型
+	optional int32 formationid = 2;//阵型id
+}
+
+message DseBattleFormationList
+{//战斗类型对应阵型	
+	repeated BattleFormation battleformationlist = 1;
+}
+
+message DseUpdateFormationPower
+{//刷新阵容战力
+}

@@ -1,0 +1,30 @@
+//活动数据
+message ActivityActionData
+{
+	optional int32 groupid = 1;
+	optional int32 count = 2;
+	optional int32 version = 3;
+	optional int32 tblid = 4;
+	repeated int32 rewardlist = 5;
+}
+
+//让红包飞数据
+message MoneyFlyData
+{
+	//optional string gold = 1;
+	optional string diamond = 2;
+	optional bool reward = 3;
+}
+
+//新手活跃活动数据
+message NewbieActivityData
+{
+	optional int32 tblid = 1;
+	optional int32 count = 2;
+	repeated int32 rewardlist = 3;
+}
+
+message LuckyCatRecord
+{
+	repeated string paramlist = 1;
+}

@@ -1,0 +1,19 @@
+//package core.io.protocol;
+
+//数据请求
+message DceSevenDayData
+{
+}
+
+//半价抢购
+message DceSevenDayBuy
+{
+	optional int32 day						= 1;	//购买的天数
+}
+
+//领取奖励
+message DceSevenDayReward
+{
+	optional int32 type						= 1;	//类型
+	optional int32 num						= 2;	//次数
+}

@@ -1,0 +1,8 @@
+//package core.io.protocol;
+
+import "DropData.proto"; 
+
+message DropList
+{
+	repeated DropData droplist = 1;
+}

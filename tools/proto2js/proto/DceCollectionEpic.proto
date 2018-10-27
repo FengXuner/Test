@@ -1,0 +1,28 @@
+//package core.io.protocol;
+//史诗图鉴
+
+//史诗图鉴数据
+message DceCollectionEpicData
+{
+}
+
+//史诗图鉴填充英雄
+message DceCollectionEpicSetHero
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional string heroid = 2;//英雄唯一id
+}
+
+//史诗图鉴卸下英雄
+message DceCollectionEpicDischargeHero
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional int32 heroid = 2;//英雄配表id
+}
+
+
+//史诗图鉴升级
+message DceCollectionEpicUpgrade
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+}

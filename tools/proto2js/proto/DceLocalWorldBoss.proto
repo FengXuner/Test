@@ -1,0 +1,34 @@
+//package core.io.protocol;
+
+//请求Boss数据
+message DceLocalWorldBoss_BossData
+{
+}
+
+//请求数据
+message DceLocalWorldBoss_Data
+{
+}
+
+//挑战
+message DceLocalWorldBoss_Battle
+{
+	optional int32 level					= 1;	//boss等级
+}
+
+//领取荣誉奖励
+message DceLocalWorldBoss_HonorReward
+{
+	optional int32 id						= 1;	//id
+}
+
+//购买buff
+message DceLocalWorldBoss_BuyBuff
+{
+}
+
+//购买挑战次数
+message DceLocalWorldBoss_BuyCount
+{
+	optional int32 num						= 1;	//数量
+}

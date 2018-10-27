@@ -1,0 +1,44 @@
+//package core.io.protocol;
+import "DropList.proto";
+import "SoulStoneData.proto";
+
+//同步魂石整体数据
+message DseSoulStone_Data
+{
+	repeated SoulStoneData soulstonelist = 1;		//魂石列表
+}
+
+//同步单个魂石数据
+message DseSoulStone_UpdataSingleData
+{
+	optional SoulStoneData data = 1;			//魂石数据
+}
+
+//批量装备
+message DseSoulStone_Set
+{
+	repeated string idlist = 1;				//装备成功唯一id列表
+	optional string  id	   = 2;				//英雄唯一id
+}
+
+//批量卸下
+message DseSoulStone_Discharge
+{
+	repeated string idlist = 1;				//唯一id列表
+	optional string  id	   = 2;				//英雄唯一id
+}
+
+//魂石分解
+message DseSoulStone_Resolve
+{
+	optional int32 ret			= 1;			//操作结果
+	repeated string idlist  	= 2;			//唯一id列表
+	optional DropList droplist 	= 3;			//掉落列表
+}
+
+//魂石强化
+message DseSoulStone_Strengthen
+{
+	optional int32 ret 						= 1;		//操作结果 
+	optional SoulStoneData data 			= 2;		//魂石数据
+}

@@ -1,0 +1,29 @@
+//package core.io.protocol;
+
+message DceComicData
+{
+}
+
+//挑战
+message DceComicChallenge
+{
+	optional	int32	id = 1;//
+}
+
+//购买挑战次数
+message DceComicBuyTimes
+{
+	optional	int32	times = 1;//
+	optional	int32	id = 2;//
+}
+
+//购买体力
+message DceComicBuyEnergy
+{
+	optional	int32	count = 1;//
+}
+
+//体力数据
+message DceComicEnergyData
+{
+}

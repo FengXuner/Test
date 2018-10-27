@@ -1,0 +1,23 @@
+//package core.io.protocol;
+//矿区块数据结构
+
+//矿区行数据
+message BlockLineData
+{
+	optional int32 y = 1;			// y坐标
+	repeated BlockData blocklist = 2; //地块列表
+}
+
+//矿区数据
+message BlockData 
+{
+    optional int32 x = 1;			// x坐标
+	optional int32 type = 2;		// 矿物类型
+}
+
+//宝箱数据
+message MiningChestData
+{
+	optional int32 x = 1;			// x坐标
+	optional int32 y = 2;			// y坐标
+}

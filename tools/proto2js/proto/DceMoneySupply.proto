@@ -1,0 +1,14 @@
+//package core.io.protocol;
+//金币补给
+
+//金币补给获取金币
+message DceMoneySupplyGetMoney
+{
+	optional int32			type = 1;//类型，1为免费，2为付费单次，3为付费十次, 4为矿镐付费单次， 5为矿镐付费十次
+	optional int32			index = 2;//序号
+}
+
+//金币补给数据
+message DceMoneySupplyData
+{
+}

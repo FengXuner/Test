@@ -1,0 +1,56 @@
+//package core.io.protocol;
+import "BattleData.proto";
+import "OtherPlayerData.proto";
+import "DropList.proto";
+
+message DseLocalRankBattleChallenge
+{//排位战挑战
+	optional int32 rank = 1;//挑战排名
+	optional int32 res = 2;
+	optional BattleResult battleresult = 3;
+	optional string uid	= 4;//挑战uid
+	optional DropList droplist = 5;//历史最高排名奖励
+	optional int32	deltahighestrank = 6;//历史最高排名变化
+}
+
+message DseLocalRankBattleTargetList
+{//排位战对手列表
+	optional LocalRankBattlePlayerList ranklist = 1;
+	optional int32	rank = 2; //自己排名
+	optional int32	challengecd = 3;//挑战cd结束时间
+	optional int32	challengetimes = 4;//今日已挑战次数
+	optional int32  buytimes = 5;//已购买次数
+	optional int32	highestrank = 6;//历史最高排名
+}
+
+message DseLocalRankBattleTopList
+{//排位战前十列表
+	optional LocalRankBattlePlayerList ranklist = 1;
+}
+
+message DseLocalRankBattleBuyTimes
+{//排位赛购买挑战次数
+	optional int32 res = 1;
+	optional int32 times = 2; 
+}
+
+message LocalRankBattlePlayerList
+{
+	repeated LocalRankBattlePlayerData playerlist = 1; 
+}
+
+message LocalRankBattlePlayerData
+{
+	optional OtherPlayerData data = 1;
+	optional string curpower = 2;
+}
+
+message DseLocalRankBattleClearCD
+{//排位赛清除CD
+	optional int32 res = 1;
+}
+
+message DseLocalRankBattleEnter
+{//进入排位赛
+	optional int32 res = 1;
+}

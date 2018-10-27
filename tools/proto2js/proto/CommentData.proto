@@ -1,0 +1,12 @@
+//评论数据结构
+message CommentData
+{
+	optional string uid = 1;				//评论id
+	optional int32 tarid = 2;				//目标关卡/卡牌id
+	optional string playerid = 3;			//评论者uid
+	optional string name = 4;				//评论者名字
+	optional string comment = 5;			//评论内容
+	optional int32 praisenum = 6;			//点赞数量
+	optional int32 region = 7;				//
+	optional int32 time = 8;				//时间
+}

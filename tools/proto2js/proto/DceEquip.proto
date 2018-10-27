@@ -1,0 +1,55 @@
+//package core.io.protocol;
+import "EquipData.proto";
+
+//批量装备
+message DceEquip_Set
+{
+	optional string  id	   = 1;				//英雄唯一id
+	repeated string idlist = 2;				//唯一id列表
+}
+
+//批量卸下装备
+message DceEquip_Discharge
+{
+	optional string  id	   = 1;				//英雄唯一id
+	repeated string idlist = 2;				//唯一id列表
+}
+
+//装备分解
+message DceEquip_Resolve
+{
+	repeated string idlist = 1;				//唯一id列表
+}
+
+//装备强化
+message DceEquip_Strengthen
+{
+	optional string id = 1;					//唯一id
+	optional int32 num = 2;					//强化次数
+}
+
+// 装备升级
+message DceEquip_Upgrade
+{
+	optional string id = 1;					// 唯一id
+	optional int32 num = 2;					// 升级次数
+}
+
+// 装备还原
+message DceEquip_Restore
+{
+	optional string id = 1;					// 唯一ID
+}
+
+// 装备碎片合成
+message DceComposeEquip
+{	
+	repeated int32 idlist = 1;			// 装备碎片ID
+	repeated int32 numlist = 2;			// 合成次数
+}
+
+//装备一键升级
+message DceEquipUpgradeAll
+{
+	repeated EquipUpgradeData equiplist = 1;	//装备列表
+}

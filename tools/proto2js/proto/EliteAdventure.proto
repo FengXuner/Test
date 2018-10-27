@@ -1,0 +1,18 @@
+//package core.io.protocol;
+
+message EliteAdventure
+{
+	optional int32			id			 = 1; //精英关卡id
+	optional int32			times		 = 2; //挑战次数
+	optional bool			win			 = 3; //是否挑战赢
+}
+
+message AdventureHard
+{
+	optional int32			laststageid	 = 1; //进度最靠后关卡id
+	optional int32			failedtimes	 = 2; //失败次数
+	optional int32			resettime	 = 3; //上次重置时间
+	optional int32			starttime	 = 4; //开始时间
+	optional bool			win			 = 5; //上一关是否挑战成功
+	optional int32			curtime		 = 6; //已在该关停留时间
+}

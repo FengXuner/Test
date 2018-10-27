@@ -1,0 +1,26 @@
+//package core.io.protocol;
+//英雄招募
+
+message DceRollHero
+{//招募英雄
+	optional int32 type = 1;//1血钻(使用抽卡令)2金币3友情点4秘术之门5血钻（不使用抽卡令）
+	optional int32 count = 2;
+	optional bool autodismiss = 3;//自动解散
+}
+
+message DceRollHeroData
+{
+}
+
+message DceTempleBuy
+{//天空神殿兑换
+	optional int32 id = 1;
+}
+
+message DceTempleReset
+{//天空神殿重置
+}
+
+message DceGetHeroGift
+{//获取宝具累计积分奖励
+}

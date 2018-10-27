@@ -1,0 +1,17 @@
+//挑战关卡数据
+message ChallengeLevelData
+{
+	optional int32 level					= 1;	//关卡id
+	repeated int32 star						= 2;	//废弃
+	optional int32 challengetime			= 3;	//挑战次数
+	optional int32 buytime					= 4;	//购买挑战次数
+	repeated int32 bufflevellist			= 5;	//buff等级列表
+	repeated ChallengeLevelStarData starlist= 6;	//各流派星级列表
+	optional bool firstreward				= 7;	//是否领取了首次三星奖励
+}
+
+//挑战关卡流派星级数据
+message ChallengeLevelStarData
+{
+	repeated int32 star						= 1;	//星星
+}

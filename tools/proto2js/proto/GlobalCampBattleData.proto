@@ -1,0 +1,45 @@
+//package core.io.protocol;
+//世界大战数据
+
+//港口信息
+message PortData
+{
+	optional int32  portid		= 1; //港口ID
+	optional int32 	playernum	= 2; //在该港口的玩家数量，对方港口人数不可见，固定为-1
+	repeated int64 playerlist 	= 3; //港口玩家列表，发给客户端时为空
+	optional int32 camp 			= 4; //阵营
+}
+
+//单个阵营信息
+message CampData
+{
+	optional int32  campid		= 1; //阵营ID
+	optional double 	resource_server	= 2; //服务器使用资源
+	repeated PortData portlist	= 3; //占领港口列表
+	optional int32  resource 		= 4; //客户端使用资源
+}
+
+//世界大战buff
+message CampBuffData
+{
+	optional int32  buffid		= 1; //BuffID
+	optional int32 	value		= 2; //数值
+}
+
+message CampBattleInfo
+{
+	optional int32			morale				= 1; //自身消耗士气
+	optional int32			targetmorale		= 2; //对方消耗士气
+	optional int32			bloodper			= 3; //胜利方消耗的血量百分比
+	optional int32			campbattlescore		= 4; //获得战功
+	optional int32			attacknum			= 5; //攻击次数
+	optional int32			winningsteak		= 6;//连胜次数
+	optional bool			kill				= 7;//是否击杀对手
+	optional int32			port				= 8;//防守方所在港口
+	optional int32			attackercamp		= 9;//攻击者阵营
+	optional int32			defendercamp		= 10;//防御者阵营
+	optional int32			attackermodel		= 11;//攻击者模型
+	optional int32			defendermodel		= 12;//防御者模型
+	optional int32			attackerregion		= 13;//攻击者区号
+	optional int32			defenderregion		= 14;//防御者区号
+}

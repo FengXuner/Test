@@ -1,0 +1,103 @@
+//package core.io.protocol;
+//冒险
+import "DropList.proto";
+import "BattleData.proto";
+import "EliteAdventure.proto";
+
+message DseGetAdventureExpDrop
+{//领取挂机经验奖励
+	optional string			gold		 = 1; //金币
+	optional string			exp			 = 2; //经验
+	optional string			playerexp	 = 3; //玩家经验
+}
+
+message DseAdventurePropDrop
+{//查看挂机道具奖励
+	optional DropList droplist			= 1; //
+}
+
+message DseGetAdventurePropDrop
+{//领取挂机道具奖励
+	optional DropList droplist			= 1; //
+	optional int32	  lastproptime		= 2; //
+}
+
+message DseAdventureData
+{//冒险数据
+	optional int32			laststageid	 = 1; //进度最靠后关卡id
+	optional int32			lastcalctime = 2; //上次挂机结算时间
+	optional int32			exploretimes = 3; //快速探索次数
+	optional DropList		propdroplist = 4; //道具掉落
+	optional int32			failedtimes	 = 5; //失败次数
+	optional int32			starttime	 = 6; //开始时间
+	optional int32			resettime	 = 7; //上次重置时间
+	optional int32			callengeid	 = 8; //精英挑战已挑战bossid
+	optional bool			win			 = 9; //上一关是否挑战成功
+	optional int32			lastproptime	 = 10; //最后道具结算时间
+	optional string			gold		 = 11; //金币
+	optional string			exp			 = 12; //经验
+	optional string			playerexp	 = 13; //玩家经验
+	optional int32			lastpassstageid = 14; //最后通关关卡id
+	repeated EliteAdventure	elitelist = 15; //精英挑战数据
+	optional int32			curtime		 = 19; //已在该关停留时间
+	optional AdventureHard	adventurehard = 20; //困难难度副本
+	optional int32			diffculty	 = 21; //所在难度（0为简单,1为困难）
+}
+
+message DseAdventureChallenge
+{//战斗请求
+	optional int32 stageid = 1;//关卡id
+	optional int32 res = 2;
+	optional BattleResult battleresult = 3;
+}
+
+message DseAdventureExplore
+{//快速战斗
+	optional int32 stageid = 1;//关卡id
+	optional int32 res = 2;
+	optional bool isvideo = 3;
+}
+
+message DseAdventureNextStageData
+{//进入下一关
+	optional int32			stageid		 = 1; //进度最靠后关卡id
+	optional int32			res			 = 2; //结果
+	optional string			gold		 = 3; //金币
+	optional string			exp			 = 4; //经验
+	optional string			playerexp	 = 5; //玩家经验
+}
+
+message DseAdventureEliteChallenge
+{//精英挑战
+	optional int32			res			 = 1;
+	optional BattleResult battleresult	 = 2;
+	optional int32			id			 = 3;//关卡id
+	optional DropList		droplist = 4;
+}
+
+message DseAdventureEliteSweep
+{//精英挑战扫荡
+	optional int32			id = 1;
+	optional int32			times = 2;
+	optional int32			res = 3;
+	optional DropList		droplist = 4;
+}
+
+message DseAdventureChallengeHard
+{//战斗请求(困难)
+	optional int32 stageid = 1;//关卡id
+	optional int32 res = 2;
+	optional BattleResult battleresult = 3;
+}
+
+message DseAdventureNextStageHardData
+{//进入下一关(困难)
+	optional int32			stageid		 = 1; //进度最靠后关卡id
+	optional int32			res			 = 2; //结果
+}
+
+message DseAdventureChangeDiffuculty
+{//切换难度
+	optional int32			type = 1; //类型（1是简单到困难，2是困难到简单）
+	optional int32			res = 2; //
+}

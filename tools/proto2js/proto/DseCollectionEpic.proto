@@ -1,0 +1,34 @@
+//package core.io.protocol;
+//史诗图鉴
+
+import "CollectionEpicData.proto";
+
+//史诗图鉴数据
+message DseCollectionEpicData
+{
+	repeated CollectionEpicData epiclist = 1;
+}
+
+//史诗图鉴填充英雄
+message DseCollectionEpicSetHero
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional string heroid = 2;//英雄唯一id
+	optional int32 res = 3;
+}
+
+//史诗图鉴卸下英雄
+message DseCollectionEpicDischargeHero
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional int32 heroid = 2;//英雄配表id
+	optional int32 res = 3;
+}
+
+
+//史诗图鉴升级
+message DseCollectionEpicUpgrade
+{
+	optional int32 groupid = 1; //史诗图鉴组id
+	optional int32 res = 2;
+}

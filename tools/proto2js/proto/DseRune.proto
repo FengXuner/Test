@@ -1,0 +1,99 @@
+//package core.io.protocol;
+//符文
+import "DropList.proto";
+
+message RuneData
+{
+	optional	string	runeid	=1;//唯一id
+	optional	int32	tableid	=2;//配表id
+	optional	int32	level	=3;//等级
+	optional	int32	exp		=4;//超过当前等级经验
+	optional	int32	transformlevel	=5;//改造等级
+	optional	int32 	extraexp	=6;//经验符文额外经验
+}
+
+//更新符文列表
+message DseRuneUpdateList
+{
+	repeated	RuneData	runelist=1;//符文列表
+}
+
+//更新单个符文数据
+message DseRuneUpdateData
+{
+	optional	string	uid		=1;//唯一id
+	optional	RuneData data	=2;//符文数据
+}
+
+//召唤符文
+message DseRuneRollRune
+{
+	optional	int32	times	= 1;//召唤次数
+	optional	int32	res		= 2;//结果
+	optional	int32	scenes	= 3;//场景
+	repeated	string	runelist = 4;//获得的符文列表
+	optional	int32	cost	= 5;//召唤金币消耗
+	optional	int32	type	= 6;//类型
+    repeated	int32	sums	= 7;//获得的符文按品质数量
+}
+
+//升级
+message DseRuneUpgrade
+{
+	optional	string	runeid	= 1;
+	optional	int32	level	= 2;
+	optional	int32	res		= 3;
+}
+
+//改造
+message DseRuneTransform
+{
+	optional	string	runeid	=1;
+	optional	int32	res		=2;
+}
+
+//装备
+message DseRuneEquip
+{
+	optional	string	runeid	=1;
+	optional	string	heroid	=2;
+	optional	int32	pos		=3;
+	optional	int32	res		=4;
+}
+
+//出售
+message DseRuneSell
+{
+	repeated	string	runelist =1;
+	optional	int32	res		=2;
+	optional	DropList	droplist	=3;
+}
+
+//还原
+message DseRuneRevert
+{
+	optional	string	runeid	=1;
+	optional	int32	res		=2;
+	optional	DropList	droplist	=3;
+}
+
+//请求场景
+message DseRuneUpdateScene
+{	
+	optional	int32	scenes	=1;
+}
+
+//一键装备
+message DseRuneAllEquip
+{
+	optional	string	heroid	=1;
+	optional	int32	res		=2;
+	repeated	string	runelist	=3;
+}
+
+//一键卸下
+message DseRuneAllUnEquip
+{
+	optional	string	heroid	=1;
+	optional	int32	res		=2;
+}

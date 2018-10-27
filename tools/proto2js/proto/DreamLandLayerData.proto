@@ -1,0 +1,7 @@
+//秘境每层数据
+message DreamLandLayerData
+{
+	repeated int32 bufflist = 1;		//buff列表
+	repeated int32 gridlist = 2;		//格子类型列表
+	optional int32 curchoose = 3;		//当前位置事件选项
+} 

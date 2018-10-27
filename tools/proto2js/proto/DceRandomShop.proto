@@ -1,0 +1,20 @@
+//package core.io.protocol;
+// 随机商店请求包
+
+// 请求商品列表
+message DceRandomShop_Data
+{
+	optional 	int32			type 		= 1; // 商店类型
+}
+
+// 购买商品
+message DceRandomShop_Buy
+{
+	optional 	int32 			itemid		= 1;	// 商品ID
+}
+
+// 刷新商店
+message DceRandomShop_Refresh
+{
+	optional	int32			type		= 1;	// 商店类型
+}

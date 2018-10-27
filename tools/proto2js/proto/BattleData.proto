@@ -1,0 +1,127 @@
+//package core.io.protocol;
+//战斗相关数据结构
+import "EquipData.proto";
+import "SoulStoneData.proto";
+
+//Buff数据
+message BuffData 
+{
+	optional int32 	  id     	 = 1;//BuffID
+	optional int32 	  round      = 2;//剩余回合数
+}
+
+//战斗行为
+message BattleActionData
+{
+	optional string		id 			= 1;
+	optional int32		skillid		= 2;//技能ID
+	optional bool		hit			= 3;//是否命中
+	repeated BuffData	bufflist	= 4;//buff列表
+	optional string		damage		= 5;//伤害
+	optional string		recover		= 6;//回复血量
+	optional string		targetpower	= 7;//敌方剩余血量
+	optional int32		heroid		= 8;//释放技能英雄id
+	optional bool		critical 	= 9;//暴击
+	optional bool		recovercritical = 10; //回复暴击
+	optional bool		exhast		= 11;//是否虚弱
+	optional bool		seal		= 12;//是否封印	
+}
+
+//战斗回合
+message BattleRoundData
+{
+	optional int32 		  roundid    = 1;//
+	repeated BattleActionData actionlist = 2;//
+}
+
+//战斗数据
+message BattleInfo
+{
+	repeated BattleRoundData roundlist = 1;//
+	optional string atkfinalpower = 2;//攻击方最终生命
+	optional string deffinalpower = 3;//防御方最终生命
+}
+
+message BattleHero
+{
+	optional int32 heroid = 1;
+	optional int32 contractlevel = 2;//契约等级
+	optional bool newmodel = 3; //新模型
+	optional int32 treasurestrenghlevel = 4; //宝具强化等级
+	optional string power = 5; //战力
+	optional int32 fire = 6; //火-先攻
+	optional int32 water = 7; //水-闪避
+	optional int32 light = 8; //光-王者
+	optional int32 attack = 9; //攻击
+	optional int32 doublehit = 10; //连击，万分比
+	optional int32 critical = 11; //暴击
+	optional int32 criticaldmg = 12; //暴击伤害,万分比
+	optional ScoutHero scouthero = 13; //侦查英雄数据
+}
+
+message ScoutRuneData
+{
+	optional int32 runeid = 1;
+	optional int32 level  = 2; //等级
+	optional int32 transformlevel = 3; //改造等级
+}
+
+message ScoutTreasureData
+{
+	optional int32 level = 1; //等级	
+}
+
+message ScoutHero
+{
+	repeated ScoutRuneData runelist = 1; //符文列表
+	optional ScoutTreasureData  treasure = 2; //宝具数据
+	repeated EquipData	equiplist = 3;	// 装备列表
+	repeated SoulStoneData soulstonelist = 4; // 魂石列表
+}
+
+//战斗者数据
+message BattlePlayerData
+{
+	optional string 		uid				= 1; //用户id
+	repeated BattleHero		herolist		= 2; //佣兵列表
+	optional string 		name			= 3; //名字
+	optional int64			power			= 4; //当前战斗力
+	optional int64			maxpower		= 5; //最大战斗力
+	optional string			strpower		= 6; //字符串格式当前战斗力
+	optional string			strmaxpower		= 7; //字符串格式最大战斗力
+	optional int32 			fire			= 8; //火-先攻
+	optional int32 			earth			= 9; //土-防御
+	optional int32 			water 			= 10;//水-闪避
+	optional int32 			light 			= 11;//光-王者
+	optional int32			skilldamageper	= 12;//技能伤害百分比
+	optional int32			skillrecoverper = 13;//技能恢复百分比
+	optional int32			fateweapon	 	= 14;//宿命武器
+	repeated int32			selftransformbufflist = 15; //针对自身转换buff列表
+	repeated int32			enemytransformbufflist = 16; //针对对方转换buff列表
+	optional int32			dmgaddper		= 17;//最终增伤百分比
+	optional int32			dmgsubper	 	= 18;//最终减伤百分比
+	optional int32			normalskilldmg	= 19;//普通技能伤害
+	optional int32			criticalskilldmg	= 20; //暴击技能伤害
+	optional int32			recoverskilldmg	= 21;//回复技能伤害
+	optional int32			recoverskillrecover	= 22; //回复技能回复
+	optional int32			pureskilldmg	= 23;//纯粹技能伤害
+	optional int32			chaosskilldmg	= 24;//瞎比技能伤害
+	optional int32			playerlevel		= 25;//玩家等级
+	optional int32			defence			= 26;//防御
+	optional int32			tough			= 27;//韧性
+	optional int32			formationsize	= 28;//阵容最大上阵人数
+	optional int32			leaderid		= 29;//主角ID
+	optional int64			battlerate		= 30;//战力评分
+	optional string			strbattlerate	= 31;//字符串格式战力评分
+	optional int32			modelid			= 32;//模型id
+}
+
+//战斗结果
+message BattleResult
+{
+	optional BattlePlayerData	atkplayer	= 1;
+	optional BattlePlayerData	defplayer	= 2;
+	optional int32			win 		= 3;
+	optional BattleInfo info = 4;//战斗数据
+	optional int32				battletype = 5;//战斗类型
+}

@@ -1,0 +1,41 @@
+//package core.io.protocol;
+
+//请求数据
+message DceChallenge_Data
+{
+}
+
+//挑战
+message DceChallenge_Battle
+{
+	optional int32 level					= 1;	//关卡id
+	optional int32 genre					= 2;	//流派
+}
+
+//领取首次三星奖励
+message DceChallenge_StarReward
+{
+	optional int32 level					= 1;	//关卡id
+}
+
+//购买buff
+message DceChallenge_BuyBuff
+{
+	optional int32 level					= 1;	//关卡id
+	optional int32 buffid					= 2;	//buffid
+	
+}
+
+//购买挑战次数
+message DceChallenge_BuyCount
+{
+	optional int32 level					= 1;	//关卡id
+	optional int32 num						= 2;	//次数
+}
+//扫荡
+message DceChallenge_Sweep
+{
+	optional int32 level					= 1;	//关卡id
+	optional int32 genre					= 2;	//流派
+	optional int32 times					= 3;	//次数
+}

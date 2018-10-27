@@ -1,0 +1,100 @@
+//package core.io.protocol;
+//通用系统
+
+message DceHeartbeat 
+{//客户端心跳
+}
+
+message DceMailList
+{//邮件列表
+	optional int32 type = 1;//邮件类型
+}
+
+message DceSendMail
+{//发送邮件
+	optional string uid = 1; //唯一ID
+	optional int32	mailid = 2; //邮件配表id
+	repeated string paramlist = 3; //参数列表
+}
+
+message DceGetMailReward
+{//领取邮件奖励
+	optional string id = 1; //邮件唯一id
+	optional int32 type = 2; //邮件类型
+}
+
+message DceBattleMailReplay
+{//战报邮件回放
+	optional string id = 1; //邮件唯一id
+	optional int32 type = 2; //邮件类型
+}
+
+message DceReadMail
+{//标记邮件已读
+	optional string id = 1; //邮件唯一id
+	optional int32 type = 2; //邮件类型
+	optional bool all = 3; //全部标记已读
+}
+
+message DceMailAction
+{
+	optional string id = 1;
+	optional int32 type = 2;
+	optional int32 action = 3;
+}
+
+//领奖中心数据
+message DceAwardCenter
+{
+}
+
+//领取领奖中心奖励
+message DceGetAward
+{
+	repeated string idlist = 1;
+	optional bool all = 2; //1为全部领取
+}
+
+//请求排行榜数据
+message DceRankData
+{
+	optional int32 type = 1;	//排行榜类型
+}
+
+//跨服排行榜
+message DceGlobalRankData
+{
+	optional int32 type = 1;	//排行榜类型
+	optional int32 globalid = 2;
+	optional int64 guildid = 3;
+}
+
+//请求玩家数据
+message DceOtherPlayerData
+{
+	optional string uid = 1;	//uid
+}
+
+//VIP礼包购买
+message DceVIPGiftBuy
+{
+	optional int32 viplevel = 1; //购买等级
+}
+
+//VIP每日奖励领取
+message DceVipDailyReward
+{
+}
+
+//请求战报
+message DceBattleReplay
+{
+	optional string id = 1; //战报id
+	optional int32	type = 2; //战报类型，普通填0，工会战填1
+}
+
+//实名认证
+message DceVerified
+{
+	optional string birthday = 1; //生日字符串
+}

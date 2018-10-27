@@ -1,0 +1,18 @@
+import "PictureFrameData.proto";
+
+message DseExchangePictureFrame
+{
+	optional int32 id    = 1;		//改变后的头像框id
+	optional int32 res   = 2;		//操作结果（0，成功，1，存档数据出错，2，未激活，3，客户端发送的ID错误,4，服务器出错）
+}
+
+message DseOnlineSendPictureFrameData
+{
+	optional int32 id    				 = 1;	// 当前的头像框id
+	repeated PictureFrameData onlinedata = 2; 	// 头像框数据，上线同步
+}
+
+message DseActivatePictureFrame
+{
+	optional PictureFrameData activiteID = 1; // 激活的头像框ID数据
+}

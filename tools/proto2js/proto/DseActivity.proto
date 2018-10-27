@@ -1,0 +1,379 @@
+//package core.io.protocol;
+//日常活动及限时活动
+
+import "DropList.proto";
+import "DropData.proto";
+import "ActivityActionData.proto";
+import "ShopBuyLimitData.proto";
+import "ActivityExchangeData.proto";
+
+message FuncSwitchData
+{
+	optional int32 id    	= 1;
+	optional bool  enable   	= 2;
+	optional int32 group		= 3;
+	optional int32 start_time 	= 4;
+	optional int32 end_time = 5;
+	optional string day 		= 6;
+	optional string channel	= 7;
+	optional string region	= 8;
+	optional string plat 		= 9;
+	optional string para 		= 10;
+	optional int32 version		= 11;
+}
+message DseFuncSwitch
+{
+	repeated FuncSwitchData funcswitch = 1;
+}
+
+//宝箱大兑换兑换奖励
+message DseBoxExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+	optional int32				ret = 3;						//操作结果
+	optional DropList			droplist = 4;					//掉落列表
+}
+
+//宝箱大兑换请求数据
+message DseBoxExchangeData
+{
+	optional int32				score				= 1; //积分
+	repeated int32				exchangeids			= 2; //有限次数限制的兑换列表
+	repeated int32				exchangetimes		= 3; //有次数限制的兑换次数列表(对应ID列表)
+}
+
+//超级大兑换兑换奖励
+message DseRollDiamondExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+	optional int32				ret = 3;						//操作结果
+	optional DropList			droplist = 4;					//掉落列表
+}
+
+//超级大兑换请求数据
+message DseRollDiamondExchangeData
+{
+	optional int32				score				= 1; //积分
+	repeated int32				exchangeids			= 2; //有限次数限制的兑换列表
+	repeated int32				exchangetimes		= 3; //有次数限制的兑换次数列表(对应ID列表)
+}
+
+//装备兑换奖励
+message DseActivityEquipExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				num = 2;						//兑换数量
+	optional int32				ret = 3;						//操作结果
+	optional DropList			droplist = 4;					//掉落列表
+}
+
+//装备兑换请求数据
+message DseActivityEquipExchangeData
+{
+	optional int32				score				= 1; //积分
+	repeated int32				exchangeids			= 2; //有限次数限制的兑换列表
+	repeated int32				exchangetimes		= 3; //有次数限制的兑换次数列表(对应ID列表)
+}
+
+
+//购买成长计划
+message DseBuyGrownUp
+{
+	optional int32				res					= 1;
+}
+
+//领取成长计划奖励
+message DseGetGrownUpReward
+{
+	optional int32				res					= 1;
+	optional int32				id					= 2;
+}
+
+//循环返利领奖
+message DseCycleRechargeReward
+{
+	optional int32			res						= 1;
+}
+
+//循环返利数据
+message DseCycleRechargeData
+{
+	optional int32			diamond					= 1; //累计充值钻石
+	optional int32			times					= 2; //已领取奖励次数	
+}
+
+//请求活跃活动数据
+message DseActivityActionData
+{
+	optional ActivityActionData activitydata = 1;		//活动列表
+}
+
+//活跃活动领奖
+message DseActivityActionReward
+{
+	optional int32 groupid = 1;
+	optional int32 ret = 2;
+	optional DropList droplist = 3;
+}
+
+//你选我送请求数据
+message DseChooseRewardData
+{
+	optional int32				refreshtime			= 1; //刷新次数
+	optional DropList			droplist			= 2; //掉落列表
+	optional int32				choosenum			= 3; //选择id
+}
+
+//你选我送刷新
+message DseChooseRewardRefresh
+{
+	optional int32				ret					= 1; //操作结果
+	optional DropList			droplist			= 2; //掉落列表
+}
+
+//你选我送选择
+message DseChooseReward
+{
+	optional int32 				id 					= 1;
+	optional int32				ret					= 2; //操作结果
+}
+
+//限时佣兵
+message DseLimitHero
+{
+	optional int32 				type 				= 1; //1免费单次 2付费单次 3付费十次
+	optional int32 				res 				= 2;
+	optional DropList 			maindrop			= 3;//主掉落
+	optional DropList 			seconddrop 			= 4;//副掉落
+	optional bool				autodismiss			= 5;//自动解雇
+	optional int32				honourpiece			= 6;//获得荣誉碎片数量
+}
+
+//限时佣兵数据
+message DseLimitHeroData
+{
+	optional int32 rank = 1; //自身排名
+	optional int32 score = 2; //总积分
+	optional int32 lastfreetime = 3; //上次免费抽取时间
+}
+
+//神之祝福
+message DseGodBless
+{
+	optional int32				type = 1;//1免费单次 2付费单次 3付费十次
+	optional int32  			res	 = 2;
+	optional DropList			maindrop = 3;//主掉落
+	optional int32				heroid = 4;//英雄id
+}
+
+//神之祝福数据
+message DseGodBlessData
+{
+	optional int32 				rank = 1;//排名
+	optional int32				score = 2;//积分
+	optional int32				times = 3;//已用免费次数
+}
+
+//新LG抽奖
+message DseNewLGHero
+{
+	optional int32 				type 				= 1; //1免费单次 2付费单次 3付费十次
+	optional int32 				res 				= 2;
+	optional DropList 			maindrop			= 3;//主掉落
+	optional DropList 			seconddrop 			= 4;//副掉落
+	optional bool				autodismiss			= 5;//自动解雇
+	optional int32				honourpiece			= 6;//获得荣誉碎片数量
+}
+
+//新LG抽奖数据
+message DseNewLGHeroData
+{
+	optional int32 score = 1; //总积分
+	optional int32 lastfreetime = 2; //上次免费抽取时间
+	repeated int32 shoplist = 3; //商店列表
+}
+
+//秘境工坊
+message DseLimitEquip
+{
+	optional int32 				type 				= 1; //1免费单次 2付费单次 3付费十次
+	optional int32 				res 				= 2;
+	optional DropList 			droplist			= 3;//掉落列表
+}
+
+//秘境工坊数据
+message DseLimitEquipData
+{
+	optional int32 rank = 1; //自身排名
+	optional int32 score = 2; //总积分
+	optional int32 times = 3; //免费次数
+}
+
+//限时商店购买商品
+message DseLimitShopBuy
+{
+	optional int32 id = 1;//商品配表id
+	optional int32 res = 2;
+	optional int32 count = 3;
+}
+
+//限时商店数据
+message DseLimitShopData
+{
+	repeated ShopBuyLimitData limitshoplist = 1;//每日限购商品列表
+	repeated ShopBuyLimitData versionlimitshoplist = 2;//每届限购商品列表
+}
+
+//请求限时兑换活动数据
+message DseActivityExchangeData
+{
+	optional int32 groupid = 1;
+	optional ActivityExchangeData data = 2;	//
+}
+
+//限时兑换
+message DseActivityExchange
+{
+	optional int32 groupid = 1;
+	optional int32 pos = 2;//兑换奖励档位
+	optional int32 ret = 3;	//操作结果
+	optional DropList droplist = 4;	//掉落列表
+	optional int32 num = 5;	//兑换次数
+}
+
+//让红包飞领奖
+message DseMoneyFly
+{
+	optional int32 res = 1;
+}
+
+//让红包飞数据
+message DseMoneyFlyData
+{
+	repeated MoneyFlyData moneyflylist = 1;
+}
+
+//佣兵兑换兑换奖励
+message DseHeroExchange
+{
+	optional int32				id = 1;							//奖励id
+	optional int32				ret = 2;						//操作结果
+	optional DropList			droplist = 3;					//掉落列表
+}
+
+//佣兵兑换请求数据
+message DseHeroExchangeData
+{
+	repeated int32				exchangeids			= 1; //有限次数限制的兑换列表
+	repeated int32				exchangetimes		= 2; //有次数限制的兑换次数列表(对应ID列表)
+}
+
+//新手活跃活动
+message DseNewbieActivityData
+{
+	repeated NewbieActivityData datalist = 1;
+}
+
+//新手活跃活动领奖
+message DseNewbieActivityReward
+{
+	optional int32 tblid			= 1;	//表id
+	optional int32 pos				= 2;	//兑换奖励位置
+	optional int32 ret				= 3;	//操作结果
+	optional DropList droplist		= 4;	//掉落列表
+}
+
+//领取天天爱充值奖励
+message DseRechargeEveryday
+{
+	required int32 id = 1;
+	optional int32 res = 2;
+}
+
+//天天爱充值数据
+message DseRechargeEverydayData
+{
+	repeated bool rechargelist = 1; //充值列表
+	repeated bool rewardlist = 2;//领奖列表
+}
+
+//随机礼包检查是否可充值购买
+message DseRandomGiftCanBuy
+{
+	optional int32 funcswitchid = 1;//funcswitchid
+	optional int32 cashid		= 2;//cashid
+	optional int32 result		= 3;//检查结果
+}
+
+//随机礼包
+message DseRandomGift
+{
+	optional int32 funcswitchid		= 1;//funcswitchid
+	optional int32 id 				= 2;//表id
+	optional int32 time_last 		= 3;//持续时间
+	optional int32 isSendAuto 		= 4;//是否上线自动下发 1 自动 0战斗结束
+}
+
+//购买随机礼包
+message DseBuyRandomGiftData
+{
+	optional int32 funcswitchid		= 1;//funcswitchid
+	optional int32 itemid			= 2;//物品id
+	optional int32 result			= 3;//购买结果
+}
+
+//遗迹探秘
+message DseRelicExploreData
+{
+	optional int32 				mapindex 	= 1;//地图id
+	optional int32 				postion 	= 2;//位置节点
+	optional int32 				doubletimes = 3;//双倍点数
+	optional DropList			droplist 	= 4;//基本掉落列表
+	optional int32				result 		= 5;//错误类型
+	optional int32 				singletime	= 6; //每日单抽次数
+	optional int32 				multitime	= 7; //活动期间十连次数
+	optional int32 				type		= 8;//探索步数 ， 0 查询，1为探索1次，2为探索10次
+	optional DropList			extradroplist 	= 9;//基本掉落列表
+	repeated int32				steplist	= 10;//步数列表
+}
+
+//领取活动版天天爱充值奖励
+message DseActivityRechargeEveryday
+{
+	required int32 id = 1;
+	optional int32 res = 2;
+}
+
+//活动版天天爱充值数据
+message DseActivityRechargeEverydayData
+{
+	repeated bool rechargelist = 1; //充值列表
+	repeated bool rewardlist = 2;//领奖列表
+}
+
+//幸运老虎机奖励id
+message DseSlotMachineId
+{
+	repeated int32   		id		= 1;
+}
+
+//幸运老虎机
+message DseSlotMachine
+{
+	optional int32 			type 	= 1;//类型		0为普通，1为豪华,2为普通十连
+	optional int32			res		= 2;
+	repeated DseSlotMachineId		ids = 3; 
+	optional DropList		droplist	= 4;
+
+}
+
+//幸运老虎机数据
+message DseSlotMachineData
+{
+	optional int32			rank	= 1;//当前排名
+	optional int32			score	= 2;//当前积分
+	optional int32			freetimes	= 3;//已用免费次数
+}
+

@@ -1,0 +1,38 @@
+//package core.io.protocol;
+import "Comic.proto";
+import "DropList.proto";
+import "Strength.proto";
+import "BattleData.proto";
+
+
+message DseComicData
+{
+	repeated ComicData comiclist					= 1; //漫画副本列表
+}
+
+message DseComicChallenge
+{
+	optional int32 id 								= 1;//关卡id
+	optional int32 res								= 2;//错误码
+	optional BattleResult battleresult 				= 3;//战斗结果
+	optional DropList droplist						= 4;//掉落
+}
+
+message DseComicBuyTimes
+{
+	optional int32 times							= 1;//次数
+	optional int32 res 								= 2;//错误码
+	optional int32 id								= 3;//关卡id
+}
+
+message DseComicBuyEnergy
+{
+	optional int32 count 							= 1;//数量
+	optional int32 res 								= 2;//错误码
+}
+
+//体力数据
+message DseComicEnergyData
+{
+	optional StrengthData comicenergy				= 1;//
+}

@@ -1,0 +1,129 @@
+//package core.io.protocol;
+//公会战
+import "BattleData.proto";
+import "GlobalGuildBattle.proto";
+
+//公会战报名
+message DceGlobalGuildBattleApply
+{
+	optional int64 guildid = 1; //公会ID
+	optional GlobalGuildBattleData data = 2; //公会信息
+	repeated string memberlist = 3; //人员列表
+	optional int32 initscore = 4; //初始积分
+}
+
+//公会战战斗
+message DceGlobalGuildBattleAttack
+{
+	optional string uid = 1; //目标uid
+	optional int64 guildid = 2; //自身公会ID
+	optional BattlePlayerData atkplayer = 3; //进攻者数据
+	optional string atkguildname = 4; //进攻者公会名
+	optional int32 star = 5; //目标星星数
+}
+
+//公会战购买攻击次数
+message DceGlobalGuildBattleBuy
+{
+	optional int32	type = 1;
+}
+
+//公会战取消报名
+message DceGlobalGuildBattleCancelApply
+{
+	optional int64 guildid = 1; //公会ID
+}
+
+//公会战冠军参战列表
+message DceGlobalGuildBattleChampionData
+{
+	optional int64 guildid = 1; //公会ID
+}
+
+//公会战殿堂
+message DceGlobalGuildBattleChampionList
+{
+	optional int32 globalid = 1;
+}
+
+//公会战信息
+message DceGlobalGuildBattleData
+{
+	optional int64 guildid = 1; //公会ID
+	optional int64 uid		= 2; //玩家ID
+}
+
+//公会战对手信息
+message DceGlobalGuildBattleEnemyData
+{
+	optional int64 guildid = 1; //公会ID
+}
+
+//公会战历史战绩信息
+message DceGlobalGuildBattleHistoryData
+{
+}
+
+//公会战成员信息
+message DceGlobalGuildBattleMemberData
+{
+}
+
+//修改公会战公告
+message DceGlobalGuildBattleModifyNotify
+{
+	optional string notify = 1;//公告内容
+}
+
+//公会战公告
+message DceGlobalGuildBattleNotify
+{
+}
+
+//公会战信息
+message DceGlobalGuildBattlePlayoffData
+{
+}
+
+//公会战记录信息
+message DceGlobalGuildBattleRecordList
+{
+}
+
+//公会战支持
+message DceGlobalGuildBattleSupport
+{
+	optional string guildid = 1; //公会ID
+	optional int64 selfguildid = 2; //自己公会id
+}
+
+//公会战刷新参战人员
+message DceGlobalGuildBattleUpdateApplyList
+{
+	repeated string memberlist = 1; //人员列表
+	optional int32 initscore = 2; //初始积分
+	optional int64 guildid = 3; //公会id
+}
+
+//公会战膜拜
+message DceGlobalGuildBattleWorship
+{
+	optional int32 type = 1; //膜拜类型
+}
+
+//晋级赛战报
+message DceGlobalGuildBattleBattleData
+{
+	optional string guildid = 1; //目标公会id
+	optional string enemyid = 2; //对手公会id
+}
+
+//更新敌人信息
+message DceGlobalGuildBattleUpdateEnemy
+{
+}
+
+message DceGlobalGuildBattleChampionMemberList
+{
+	optional int64 guildid = 1; //公会id
+}

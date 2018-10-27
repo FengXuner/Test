@@ -1,0 +1,70 @@
+//package core.io.protocol;
+//符文
+
+//更新符文列表
+message DceRuneUpdateList
+{
+}
+
+//更新单个符文数据
+message DceRuneUpdateData
+{
+	optional	string	uid		=1;//唯一id
+}
+
+//召唤符文
+message DceRuneRollRune
+{
+	optional	int32	type	=1;//类型
+	optional	int32	times	=2;//次数
+}
+
+//升级
+message DceRuneUpgrade
+{
+	optional	string	runeid	=1;//要升级的符文
+	optional	int32	level	=2;//
+}
+
+//改造
+message DceRuneTransform
+{
+	optional	string	runeid	=1;
+}
+
+//装备
+message DceRuneEquip
+{
+	optional	string	runeid	=1;
+	optional	string	heroid	=2;
+	optional	int32	pos		=3;
+}
+
+//出售
+message DceRuneSell
+{
+	repeated	string	runelist	=1;
+}
+
+//还原
+message DceRuneRevert
+{
+	optional	string	runeid	=1;
+}
+
+//更新场景
+message DceRuneUpdateScene
+{
+}
+
+//一键装备
+message DceRuneAllEquip
+{
+	optional	string	heroid	=1;
+}
+
+//一键卸下
+message DceRuneAllUnEquip
+{
+	optional	string	heroid	=1;
+}

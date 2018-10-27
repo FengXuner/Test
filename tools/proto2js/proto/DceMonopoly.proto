@@ -1,0 +1,30 @@
+// 大富翁数据
+message DceMonopolyData
+{	
+}
+
+// 大富翁掷骰子
+message DceMonopolyThrowSieve
+{
+}
+
+// 大富翁翻倍
+message DceMonopolyDouble
+{
+	optional int32		index		= 1; // 当前步数
+	optional int32		double		= 2; // 翻几倍
+}
+
+// 大富翁前进
+message DceMonopolyAdvance
+{
+    optional int32		advancestep						= 1; // 前进步数
+}
+
+// 大富翁八次掷骰子
+message DceMonopolyEightThrowSieve
+{
+	optional int32		golddouble			= 1;// 金币格子的翻倍
+	optional int32		cashdouble			= 2;// 钻石格子的翻倍
+	optional int32		problemdouble		= 3;// 问号格子的翻倍
+}

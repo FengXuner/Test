@@ -1,0 +1,17 @@
+//package core.io.protocol;
+import "OtherPlayerData.proto";
+
+message RelationData
+{
+	optional OtherPlayerData	data				= 1;  //玩家数据
+	optional int32			time					= 2;  //时间
+}
+
+message FriendPointData
+{
+	optional string			uid						= 1;  //uid
+	optional int32			time					= 2;  //赠送时间
+	optional string			name					= 3;  //名字
+	optional int32			modelid					= 4;  //模型id
+	optional int32			pictureID				= 5[default = 1];// 底座ID
+}

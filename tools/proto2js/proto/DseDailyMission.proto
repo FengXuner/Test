@@ -1,0 +1,35 @@
+import "DropList.proto";
+//package core.io.protocol;
+
+//任务领奖
+message DseDailyMissionReward
+{
+	optional int32 missionid   				= 1;	//任务ID
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}
+
+//领取活跃值奖励
+message DseActivityReward
+{
+	optional int32 id						= 1;	//表id
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落
+}
+
+//日常任务及活跃基本数据下发
+message DseDailyBaseData
+{
+	optional int32 activity					= 1;	//当前活跃值
+	optional int32 activityaward			= 2;	//已领活跃奖励次数
+	repeated DseDailyMissionUpdate missionlist	= 3;	//任务列表
+}
+
+//任务数据
+message DseDailyMissionUpdate
+{
+	optional int32 missionid				= 1;	//任务ID
+	optional int32 status					= 2;	//任务状态
+	optional int32 count					= 3;	//任务计数
+}
+

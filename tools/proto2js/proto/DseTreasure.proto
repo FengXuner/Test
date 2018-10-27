@@ -1,0 +1,110 @@
+//package core.io.protocol;
+//宝具
+import "TreasureSoul.proto";
+import "DropList.proto";
+
+message DseTreasureSoulList
+{//宝具之魂列表
+	repeated TreasureSoul treasuresoullist = 1;
+}
+
+message DseTreasureUpgrade
+{//宝具升级
+	optional string heroid = 1;//英雄唯一id
+	optional int32 res = 2;
+	optional int32 times = 3; // 升级成功次数
+}
+
+message DseTreasureStrengthen
+{//宝具强化
+	optional string heroid = 1;//英雄唯一id
+	optional int32 res = 2;
+}
+
+message DseTreasureSoulCompose
+{//宝具之魂合成
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+	optional int32 res = 3;
+}
+
+message DseTreasureSoulDecompose
+{//宝具之魂分解
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+	optional int32 res = 3;
+}
+
+message DseUpdateTreasureSoul
+{//刷新宝具之魂
+	repeated TreasureSoul treasuresoullist = 1;
+}
+
+message DseRollTreasureSoul
+{//招募宝具之魂
+	optional int32 type = 1;//1血钻2金币3友情点
+	optional int32 count = 2;
+	optional int32 res = 3;
+	optional DropList droplist = 4;
+	optional bool autodismiss = 5; //自动解雇
+	optional int32 treasureessence = 6; //宝具精华
+}
+
+message DseRollTreasureSoulData
+{
+	optional int32 goldtimes = 1;//本日金币抽卡次数
+	optional int32 diamondfreetimes = 2;//本日钻石单抽已免费次数
+	optional int32 diamondtentimes = 3; //钻石十连抽次数
+	optional int32 vipfreetimes = 4; //每日vip抽卡打折次数
+	optional int32 score = 5; //积分
+}
+
+message DseTreasureTransformRandom
+{//宝具之魂随机转化检查
+	optional int32 treasureid = 1;//
+	optional int32 res = 2;//
+	optional int32 targetid = 3;//
+}
+
+message DseTreasureTransform
+{//宝具之魂随机转化
+	optional int32 selfid = 1;//
+	optional int32 targetid = 2;//
+	optional int32 res = 3;//
+}
+
+message DseTreasureTransformRegular
+{//宝具之魂定向转化
+	optional int32 selfid = 1;//
+	optional int32 targetid = 2;//
+	optional int32 res = 3;//
+}
+
+message DseTreasureTransformCancle
+{//宝具之魂随机转化取消
+	optional int32 ret = 1;//
+}
+
+message DseTreasureTransformData
+{//宝具之魂转化数据
+	optional int32 lasttransformid = 1; //上次转换的id
+	optional int32 lastselfid = 2; //上次被转换的宝具id（如已无该宝具，返回0）
+}
+
+message DseGetTreasureGift
+{//获取累积积分奖励
+	optional int32 res = 1; //
+	optional int32 score = 2; //积分
+}
+
+message DseTreasureBuyData
+{//宝具兑换历史数据`
+	repeated int32 idlist = 1;	//已兑换ID列表
+	repeated int32 numlist = 2;	//已兑换数量列表
+}
+
+message DseTreasureBuy
+{//宝具兑换
+	optional int32 id = 1;	//兑换ID
+	optional int32 ret = 2;	//操作结果
+}

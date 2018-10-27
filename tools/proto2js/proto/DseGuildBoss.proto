@@ -1,0 +1,59 @@
+//package core.io.protocol;
+//公会Boss
+import "Guild.proto";
+import "BattleData.proto";
+import "DropList.proto";
+
+//公会Boss数据
+message DseGuildBossData
+{
+	repeated GuildBossStage stagelist = 1;
+	optional int32 resettimes = 2; //本日已重置次数
+	optional int32 resetstage = 3; //本次重置关卡
+	optional int32 attacktimes = 4; //已攻击次数
+	optional int32 buytimes	= 5; //已购买次数
+	optional string damage = 6; //个人总伤害
+	optional string guilddamage = 7; //在当前公会的总伤害
+	optional int32 resource = 8; //捐献资源
+	optional int32 resourcetoday = 9; //本日捐献资源
+}
+
+//公会Boss挑战
+message DseGuildBossChallenge
+{
+	optional int32 stageid = 1; //关卡id
+	optional int32 bossid = 2;	//BossID [1,4]
+	optional int32 res = 3;
+	optional BattleResult battleresult = 4;
+	optional DropList droplist = 5;
+}
+
+//公会Boss重置
+message DseGuildBossReset
+{
+	optional int32 stageid = 1; //关卡id
+	optional int32 res = 2;
+}
+
+//公会Boss购买挑战次数
+message DseGuildBossBuyTimes
+{
+	optional int32 times = 1; //购买次数
+	optional int32 res = 2;
+}
+
+//公会Boss领取奖励
+message DseGuildBossGetReward
+{
+	optional int32 stageid = 1;
+	optional int32 num = 2;
+	optional int32 res = 3;
+}
+
+//公会Boss捐献
+message DseGuildBossDonate
+{
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+	optional int32 res = 3;
+}

@@ -1,0 +1,8 @@
+//商店限制购买商品
+
+message ShopBuyLimitData
+{
+	optional int32 id	= 1;	//id
+	optional int32 num	= 2;	//数量
+}
+

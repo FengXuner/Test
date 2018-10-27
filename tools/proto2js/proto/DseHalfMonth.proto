@@ -1,0 +1,26 @@
+import "DropList.proto";
+import "SevenDayData.proto";
+//package core.io.protocol;
+
+//数据请求
+message DseHalfMonthData
+{
+	repeated SevenDayData		datalist			= 1; //数据列表
+	repeated int32				buylist				= 2; //已购买打折商品次数
+	repeated int32				loginlist			= 3; //登录天数列表
+	repeated int32				loginrewardlist		= 4; //登录天数领奖列表
+	repeated int32				totalrechargelist	= 5; //累计充值数列表
+	repeated SevenDayRechargeData totalrechargerewardlist	= 6; //累计充值领奖天数列表
+	optional int32				totalmissionnum		= 7; //累计任务完成次数
+	optional int32				totalmissionreward	= 8; //累计任务领奖id
+}
+
+//领取奖励
+message DseHalfMonthReward
+{
+	optional int32 type						= 1;	//类型
+	optional int32 num						= 2;	//次数
+	optional int32 count					= 3;	//数量
+	optional int32 ret						= 4;	//操作结果
+	optional DropList droplist				= 5;	//掉落列表
+}

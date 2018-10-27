@@ -1,0 +1,48 @@
+//package core.io.protocol;
+//英雄
+import "DropList.proto";
+import "TempleData.proto";
+
+message DseRollHero
+{//招募英雄
+	optional int32 type = 1;//1血钻2金币3友情点4秘术之门
+	optional int32 count = 2;
+	optional int32 res = 3;
+	optional DropList droplist = 4;
+	optional bool autodismiss = 5;//自动解散
+	optional int32 honourpiece = 6;//荣誉碎片
+}
+
+message DseRollHeroData
+{
+	optional int32 goldtimes = 1;//本日金币抽卡次数
+	optional int32 diamondfreetimes = 2;//本日钻石单抽已免费次数
+	optional int32 diamondtentimes = 3; //钻石十连抽次数
+	optional int32 vipfreetimes = 4; //每日vip抽卡打折次数
+	optional int32 score = 5; //积分
+}
+
+message DseTempleBuy
+{
+	optional int32 id = 1;
+	optional int32 res = 2;
+}
+
+message DseTempleData
+{
+	repeated TempleList templelist = 1; //卡牌列表
+	optional int32 times = 2; //今日已购买次数
+	optional int32 resettimes = 3; //今日已重置次数
+	optional int32 freeresettimes = 4; //今日vip免费重置次数
+}
+
+message DseTempleReset
+{//天空神殿重置
+	optional int32 res = 1;
+}
+
+message DseGetHeroGift
+{//获取累计英雄积分奖励
+	optional int32 res = 1;
+	optional int32 score = 2;
+}

@@ -1,0 +1,16 @@
+//限时兑换数据
+message ActivityExchangeData
+{
+	optional int32 groupid = 1;
+	optional int32 version = 2;
+	optional int32 tblid = 3;
+	optional bool haveclear	= 4; //已经清理过过期数据
+	repeated ActivityExchangeHistory historylist = 5;
+}
+
+//限时兑换历史数据
+message ActivityExchangeHistory
+{
+	optional int32 id = 1;				//id
+	optional int32 num = 2;				//已购买次数
+}

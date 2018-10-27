@@ -1,0 +1,13 @@
+//package core.io.protocol;
+//≤‚ ‘
+
+message DceTestChallenge
+{//’Ω∂∑≤‚ ‘-NPC
+	optional int32 monsterid = 1;
+}
+
+message DceTestBattle
+{//’Ω∂∑≤‚ ‘-ÕÊº“
+	optional string uid = 1;
+}
+

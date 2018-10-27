@@ -1,0 +1,137 @@
+import "BlockData.proto";
+import "DropList.proto";
+import "MiningProjectData.proto";
+import "MiningGolemData.proto";
+import "BattleData.proto";
+import "MiningMissionData.proto";
+
+//package core.io.protocol;
+//矿区相关操作结果
+
+//请求挖矿操作结果
+message DseMining_DigBlock
+{
+	optional int32 returnvalue = 1;		//返回值
+	optional DropList droplist = 2;		//掉落表(增量)
+	optional BattleResult result = 3;	//战斗结果
+}
+
+//请求提高矿镐耐久上限
+message DseMining_ExtendDigMaxCount
+{
+	optional int32 returnvalue = 1;		//返回值
+}
+
+//使用TNT操作结果
+message DseMining_UseTNT
+{
+	optional int32 returnvalue = 1;		//返回值
+	optional DropList droplist = 2;		//掉落表(增量)
+}
+
+//地块数据更新
+message DseUpdateBlockData
+{
+	repeated BlockLineData blocklinelist = 1;	//地块列表
+}
+
+//建立挖矿工程结果
+message DseMining_AddProject
+{
+	optional int32 pos = 1;				//工程位置
+	optional int32 id = 2;				//工程id
+	optional int32 returnvalue = 3;		//返回值
+}
+
+//获取挖矿工程奖励
+message DseMining_GetProjectReward
+{
+	optional int32 pos = 1;				//工程位置
+	optional int32 returnvalue = 2;		//返回值
+	optional DropList droplist = 3;		//掉落表(增量)
+}
+
+//解锁工坊队列
+message DseMining_UnlockProject
+{
+	optional int32 pos = 1;				//工程位置
+	optional int32 returnvalue = 2;		//返回值
+}
+
+//重置矿区
+message DseMining_RefreshArea
+{
+	optional int32 returnvalue = 1;		//返回值
+}
+
+//下发矿镐耐久数据
+message DseMining_UpdateDigCount
+{
+	optional int32 dig_max_count = 1; 	//矿镐最大耐久
+	optional int32 dig_count = 2; 		//矿镐当前耐久
+	optional int32 dig_recover_time = 5;	//矿镐开始恢复时间
+}
+
+//下发工程基本数据
+message DseMining_ProjectData
+{
+	repeated MiningProjectData projectlist = 1;	//工程列表
+	optional int32 project_max_count = 2;	//工程最大数量
+	optional int32 dig_max_layer = 3;		//矿区挖掘深度
+}
+
+//下发当前地块数据
+message DseMining_CurBlock
+{
+	optional BlockData curblock = 1;	//当前挖掘地块
+	optional int32 y = 2;				//当前地块y坐标
+	optional int32 digendtime = 3;		//当前挖掘结束时间
+}
+
+//下发魔像数据
+message DseMining_GolemData
+{
+	optional int32 golem_lv	= 1;		//魔像最高等级
+	repeated MiningGolemData golemlist = 2;	//魔像地块列表
+	optional int32 refresh_time	= 3;	//免费重置时间
+}
+
+//下发宝箱数据
+message DseMining_ChestData
+{
+	repeated MiningChestData chestlist = 1;	//宝箱列表
+}
+
+//上线同步数据
+message DseMiningMission_SendData
+{
+	repeated MiningMissionData missiondatalist  = 1; 	// 任务数据
+}
+
+//刷新挖矿任务
+message DseMiningMission_Refresh
+{
+	optional int32 res						= 1;   	// 操作结果（0：成功  1：服务器出错  2：表出错  3：没有课刷新的任务  4：钻石不足不可刷新）
+	repeated MiningMissionData missiondatalist  = 2; 	// 任务数据
+}
+
+// 接取任务
+message DseMiningMission_Accept
+{
+	optional int32 res		= 1;				//操作码（0：成功  1：服务器错误  2：客户端数据错误  3：任务已经接取或完成）
+	optional int32 id 		= 2;				//任务id
+}
+
+// 完成任务
+message DseMiningMission_Finish
+{
+	optional int32 res		= 1;				//操作码（0：成功   1：服务器出错  2：客户端数据有误  3：数据表出错 4：任务还未达成）
+	optional int32 id 		= 2;				//任务id
+	optional DropList droplist = 3;				//掉落表
+}
+
+// 同步单条任务数据
+message DseMiningMission_SingleUpdate
+{
+	optional MiningMissionData missiondata = 1; //任务数据
+}

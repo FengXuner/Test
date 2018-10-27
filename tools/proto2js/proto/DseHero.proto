@@ -1,0 +1,229 @@
+//package core.io.protocol;
+//英雄
+import "DropList.proto";
+
+message LeaderData
+{
+	repeated int32				weaponlist			= 1;  //宿命武器
+	optional int32				addpower			= 2;  //增加的战斗力
+}
+
+message HeroData
+{
+	optional string				id					= 1;  //唯一ID
+	optional int32				tableid				= 2;  //配表ID
+	optional int32				level				= 3;  //等级
+	optional int32				wakeupid			= 4;  //觉醒id
+	optional int32				strengthenlevel		= 5;  //强化等级
+	optional int32				power				= 6;  //战斗力
+	optional int32				fire				= 7; //火-先攻
+	optional int32				earth				= 8; //土-防御
+	optional int32				water				= 9; //水-闪避
+	optional int32				light				= 10; //光-王者
+	optional int32				failedtimes			= 11; //强化失败次数
+	optional LeaderData			leader 				= 12; //主角数据
+	optional int32				contractlevel		= 13; //契约等级
+	optional int32				diamond				= 14; //累计消耗钻石
+	optional string				strengthenlist		= 15; //各已强化完成等级的强化次数
+	optional string				gold				= 16; //累计消费金币
+	repeated string				rulelist			= 17; //符文列表
+	optional int32				attack				= 18; //攻击
+	optional int32				critical			= 19; //暴击
+	optional int32				criticaldmg			= 20; //暴击伤害
+	optional int32				doublehit			= 21; //连击
+	optional int32				treasurelevel		= 22; //宝具等级
+	optional int32				treasurestrengthlevel = 23; //宝具强化等级
+	optional bool				newmodel			= 24; //新模型
+	repeated string				equiplist			= 25; //装备列表
+	optional int32				defence				= 26; //防御
+	optional int32				tough				= 27; //韧性
+	optional int64				battlerate			= 28; //战力评分
+	repeated string				soulstonelist		= 29; //魂石列表
+}
+
+message HeroSoulData
+{//灵魂石
+	optional int32				id 					= 1;
+	optional int32				count				= 2;
+}
+
+message DseHeroList
+{//英雄列表
+	repeated HeroData			herolist 			= 1;
+}
+
+message DseHeroUpgrade
+{//英雄升级
+	optional string id = 1;//唯一id
+	optional int32 times = 2;//升级次数
+	optional int32 res = 3;//结果
+}
+
+message DseHeroWakeUp
+{//英雄觉醒
+	optional string id = 1;//唯一id
+	optional int32 res = 2;//结果
+}
+
+message DseHeroStrengthen
+{//英雄强化
+	optional string id = 1;//唯一id
+	optional int32 percent = 2;//提升成功率
+	optional int32 res = 3;//结果
+}
+
+message DseAddHero
+{//增加一个英雄
+	optional HeroData hero = 1;
+	optional bool new = 2;
+}
+
+message DseUpdateHero
+{//刷新英雄数据
+	optional HeroData hero = 1;
+}
+
+message DseUpdateHeroList
+{//刷新多个英雄数据
+	repeated HeroData herolist = 1;
+}
+
+message DseDelHero
+{//删除英雄
+	optional string id = 1;
+}
+
+message DseDelHeroList
+{//删除英雄列表
+	repeated DseDelHero herolist = 1;
+}
+
+message DseSetFateWeapon
+{//设置宿命武器
+	optional int32 formationid = 1;//阵型id
+	optional int32 weaponid = 2;//武器id
+	optional int32 res = 3;//结果
+}
+
+message DseLeaderStrengthen
+{//主角宿命强化
+	optional int32 res = 1;//结果
+}
+
+message DseHeroContract
+{//契约
+	optional string id = 1;//唯一id
+	optional int32 res = 2;//结果
+}
+
+message DseHeroSoulList
+{//灵魂石列表
+	repeated HeroSoulData soullist = 1;
+}
+
+message DseUpdateHeroSoul
+{
+	repeated HeroSoulData soul = 1;
+}
+
+message DseHeroLibrary
+{//图鉴
+	repeated int32 librarylist = 1;
+	repeated int32 limitherolist = 2;
+}
+
+message DseAddHeroLibrary
+{//图鉴追加
+	optional int32 heroid = 1;
+}
+
+message DseHeroDismiss
+{//解雇
+	repeated string herolist = 1;
+	optional int32 res = 2;
+	optional int32 type = 3;
+}
+
+message DseHeroCompose
+{//重新召唤
+	optional int32 id = 1;
+	optional int32 res = 2;
+}
+
+message DseHeroSoulCompose
+{//灵魂石合成
+	optional int32 id = 1;
+	optional int32 res = 2;
+}
+
+message DseHeroStrengthData
+{//强化失败数据
+	optional string id = 1;
+	optional int32 failedtimes = 2;
+}
+
+message DseChargeHero
+{//英雄兑换
+	optional int32 heroid = 1;
+	optional int32 res = 2;
+	optional DropList droplist = 3;
+}
+
+message DseChargeHeroBatch
+{//批量英雄兑换
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+	optional DropList droplist = 3;
+}
+
+message DseHeroChangeLeader
+{//
+	optional int32 genre = 1;
+	optional int32 res = 2;
+}
+
+message DseSetHeroModel
+{//更改英雄模型
+	optional string id = 1;//唯一id
+	optional bool newmodel = 2; //是否是新模型
+	optional int32 res = 3;
+}
+
+message DseHeroTransformRandom
+{//英雄随机转换（只随机）
+	optional string selfid = 1;//
+	optional int32 targetid = 2;//
+	optional int32 res = 3;//
+}
+
+message DseHeroTransformSet
+{//英雄随机转换（确认转换）
+	optional string selfid = 1;//
+	optional int32 targetid = 2;//
+	optional int32 res = 3;//
+}
+
+message DseHeroTransformCancle
+{//英雄随机转换取消
+}
+
+message DseHeroTransformRegular
+{//英雄固定转换
+	optional string selfid = 1;//
+	optional int32 targetid = 2;//
+	optional int32 res = 3;//
+}
+
+message DseHeroTransformData
+{//英雄转换数据
+	optional int32 lasttransformid = 1; //上次转换的id
+	optional string lastselfid = 2; //上次被转换的英雄id（如已无该英雄，返回0）
+}
+
+message DseHeroPieceSell
+{
+	optional int32 id = 1;//表ID
+	optional int32 num = 2;//出售次数
+	optional int32 ret = 3;//操作结果
+	optional DropList droplist = 4;//掉落列表
+}

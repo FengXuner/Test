@@ -1,0 +1,9 @@
+//package core.io.protocol;
+
+message StrengthData
+{
+	optional int32				strength		= 1; //体力
+ 	optional int32				recovertime		= 2; //上次恢复体力时间
+	optional int32				buytimes		= 3; //购买体力次数
+	optional int32				strengthmax		= 4; //体力上限
+}

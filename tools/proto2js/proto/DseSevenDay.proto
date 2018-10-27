@@ -1,0 +1,41 @@
+import "DropList.proto";
+import "SevenDayData.proto";
+//package core.io.protocol;
+
+//下发建号时间
+message DseSevenDayPlayerCreate
+{
+	optional int32 time						= 1;	//建号时间
+}
+
+//数据请求
+message DseSevenDayData
+{
+	repeated SevenDayData		datalist			= 1; //数据列表
+	repeated int32				buylist				= 2; //已购买打折商品次数
+	repeated int32				loginlist			= 3; //登录天数列表
+	repeated int32				loginrewardlist		= 4; //登录天数领奖列表
+	repeated int32				rechargelist		= 5; //充值天数列表
+	repeated int32				rechargerewardlist	= 6; //充值天数领奖列表
+	repeated int32				totalrechargelist	= 7; //累计充值数列表
+	repeated SevenDayRechargeData totalrechargerewardlist	= 8; //累计充值领奖天数列表
+	optional int32				totalmissionnum		= 9; //累计任务完成次数
+	optional int32				totalmissionreward	= 10; //累计任务领奖id
+}
+
+//半价抢购
+message DseSevenDayBuy
+{
+	optional int32 day						= 1;	//购买的天数
+	optional int32 ret						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落列表
+}
+
+//领取奖励
+message DseSevenDayReward
+{
+	optional int32 type						= 1;	//类型
+	optional int32 num						= 2;	//次数
+	optional int32 ret						= 3;	//操作结果
+	optional DropList droplist				= 4;	//掉落列表
+}

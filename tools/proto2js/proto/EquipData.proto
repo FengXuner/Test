@@ -1,0 +1,16 @@
+//package core.io.protocol;
+
+//装备数据结构
+message EquipData
+{
+	optional string id 			= 1;			//唯一id
+	optional int32 tblid 		= 2;			//表id
+	optional int32 forcelevel 	= 3;			//强化等级
+	optional int32 level 		= 4;			//等级
+}
+
+message EquipUpgradeData
+{
+	optional string id			= 1;			//唯一id
+	optional int32 level		= 2;			//要升的等级
+}

@@ -1,0 +1,68 @@
+//package core.io.protocol;
+
+import "GlobalCampBattleData.proto";
+import "BattleData.proto";
+
+//加入世界大战
+message DseEnterGlobalCampBattle
+{
+	optional int32 res = 1;
+	optional int32 camp = 2;
+	optional int32 globalid = 3;
+}
+
+//世界大战托管
+message DseGlobalCampBattleAutoPlay
+{
+	optional int32	autoplay = 1;//1开启2取消
+	optional int32	res = 2;//
+}
+
+//购买世界大战特权
+message DseGlobalCampBattleBuy
+{
+	optional int32	type = 1;//1侦查2嗜血
+	optional int32	res = 2;//
+}
+
+//世界大战数据
+message DseGlobalCampBattleData
+{
+	optional int32 morale 		   = 1; //士气
+	optional int32 score 		   	   = 2; //战功
+	optional int32 cd 			   = 3; //CD结束时间
+	optional int32 portid 		   = 4; //所在港口ID
+	repeated CampData camplist	   = 5; //阵营信息
+	optional int32 moralelimit	   = 7; //士气上限
+	optional int32 rank			   = 12;//当前排名
+	optional int32 camp 		   	= 13;//阵营
+	optional int32 deathnum		   = 14;//死亡次数
+	optional int32 detecttime      = 15;//侦查到期模式时间
+	optional int32 bloodtimes      = 16;//破釜沉舟剩余次数
+	optional int32 bloodbuytimes   = 17;//破釜沉舟购买次数
+	optional bool openday		   = 19;//本日是否开放
+	optional int32 globalid		   = 20;//分服id
+	optional int32 clearcdtimes	   = 21;//清除CD次数
+	optional bool autoplay		   = 22;//托管
+	repeated int32 starttime		   = 23;//开始时间
+	repeated int32 endtime		   = 24;//结束时间
+	repeated int32 rewardtime		   = 25;//双倍资源时间
+}
+
+//阵营战移动
+message DseGlobalCampBattleMove
+{
+	optional int32 res = 1; 
+	optional BattleResult battleresult = 2; //
+	optional CampBattleInfo battleinfo = 3; //
+}
+
+//阵营战结算数据
+message DseGlobalCampBattleResult
+{
+	optional int32 attacknum = 1; //进攻次数
+	optional int32 defendnum = 2;
+	optional int32 killnum = 3;
+	optional int32 occupynum = 4;
+	optional int32 rank = 5;
+}

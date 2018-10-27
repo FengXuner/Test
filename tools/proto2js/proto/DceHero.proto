@@ -1,0 +1,107 @@
+//package core.io.protocol;
+//英雄
+
+message DceHeroList
+{//英雄列表
+}
+
+message DceHeroUpgrade
+{//英雄升级
+	optional string id = 1;//唯一id
+	optional int32 times = 2;//升级次数
+}
+
+message DceHeroWakeUp
+{//英雄觉醒
+	optional string id = 1;//唯一id
+}
+
+message DceHeroStrengthen
+{//英雄强化
+	optional string id = 1;//唯一id
+	optional int32 percent = 2;//提升成功率
+}
+
+message DceSetFateWeapon
+{//设置宿命武器
+	optional int32 formationid = 1;//阵型id
+	optional int32 weaponid = 2;//武器id
+}
+
+message DceLeaderStrengthen
+{//主角宿命强化
+}
+
+message DceHeroContract
+{//契约
+	optional string id = 1;//唯一id
+}
+
+message DceHeroDismiss
+{//解雇
+	repeated string herolist = 1;
+	optional int32 type = 2;//0为解雇，1为还原
+}
+
+message DceHeroCompose
+{//重新召唤
+	optional int32 id = 1;
+}
+
+message DceHeroSoulCompose
+{//灵魂石合成
+	optional int32 id = 1;
+}
+
+message DceChargeHero
+{//英雄兑换
+	optional int32 heroid = 1;
+}
+
+message DceChargeHeroBatch
+{//批量英雄兑换
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+}
+
+message DceHeroChangeLeader
+{//主角流派更换
+	optional int32 genre = 1;
+}
+
+message DceSetHeroModel
+{//更改英雄模型
+	optional string id = 1;//唯一id
+	optional bool newmodel = 2; //是否是新模型	
+}
+
+message DceHeroTransformRandom
+{//英雄随机转换（只随机）
+	optional string selfid = 1;//
+}
+
+message DceHeroTransformSet
+{//英雄随机转换（确认转换）
+	optional string selfid = 1;//
+	optional int32 targetid = 2;//
+}
+
+message DceHeroTransformCancle
+{//英雄随机转换取消
+}
+
+message DceHeroTransformRegular
+{//英雄固定转换
+	optional string selfid = 1;//
+	optional int32 targetid = 2;//
+}
+
+message DceHeroTransformData
+{//
+}
+
+message DceHeroPieceSell
+{
+	optional int32 id = 1;//表ID
+	optional int32 num = 2;//出售次数
+}

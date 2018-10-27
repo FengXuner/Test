@@ -1,0 +1,10 @@
+//package core.io.protocol;
+//道具数据结构
+
+//工坊工程数据结构
+message MiningProjectData
+{
+	optional int32				pos					= 1;//工程位置
+	optional int32				id					= 2;//工程id
+	optional int32				endtime				= 3;//完成时间
+}

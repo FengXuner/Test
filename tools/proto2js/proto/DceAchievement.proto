@@ -1,0 +1,23 @@
+//package core.io.protocol;
+
+//成就奖励
+message DceAchievementReward
+{
+	optional int32 id   					= 1;	//成就ID
+}
+//一键领取成就奖励
+message DceAchievementAllReward
+{
+	repeated int32 id_all 					= 1;	//成就ID列表
+}
+//成就点总奖励
+message DceAchievementTotalReward
+{
+
+}
+
+//请求成就数据
+message DceAchievementData
+{
+
+}

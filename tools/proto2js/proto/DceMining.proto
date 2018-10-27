@@ -1,0 +1,68 @@
+//package core.io.protocol;
+//矿区相关操作
+
+//请求挖矿
+message DceMining_DigBlock
+{
+    optional int32 x = 1;        	//目标X坐标
+    optional int32 y = 2;			//目标Y坐标
+}
+
+//请求提高矿镐耐久上限
+message DceMining_ExtendDigMaxCount
+{
+}
+
+//请求矿区具体数据
+message DceMining_DetailData
+{
+	optional bool fulldata = 1;		//是否请求全部地块数据
+}
+
+//使用TNT
+message DceMining_UseTNT
+{
+}
+
+//建立挖矿工程
+message DceMining_AddProject
+{
+	optional int32 pos	= 1;		//工程位置
+	optional int32 id = 2;			//工程id
+}
+
+//获取挖矿工程奖励
+message DceMining_GetProjectReward
+{
+	optional int32 pos = 1;			//工程位置
+}
+
+//解锁工坊队列
+message DceMining_UnlockProject
+{
+	optional int32 pos = 1;			//工程位置
+}
+
+//重置矿区
+message DceMining_RefreshArea
+{
+	optional int32 id = 1;			//重置到特定等级小怪，对应mining_refresh_info
+	optional int32 type = 2;		//类型,1：免费,2：道具,3：钻石
+}
+
+// 刷新挖矿任务
+message DceMiningMission_Refresh
+{
+}
+
+// 接取任务
+message DceMiningMission_Accept
+{
+	optional int32 id 		= 1;				//任务表id
+}
+
+// 完成任务
+message DceMiningMission_Finish
+{
+	optional int32 id 		= 1;				//任务唯一id
+}

@@ -1,0 +1,36 @@
+//package core.io.protocol;
+// 随机商店下发包
+import "DropList.proto";
+
+// 随机商店道具
+message RandomShopItem
+{
+	optional	int32			itemid			= 1;	// 商品ID
+	optional	int32			buycount		= 2;	// 购买次数
+}
+
+// 请求商品列表
+message DseRandomShop_Data
+{
+	optional 	int32			type 			= 1; 	// 商店类型
+	repeated	RandomShopItem	itemlist		= 2;	// 道具列表
+	optional	int32			count			= 3;	// 刷新次数
+	optional	int32			freecount		= 4;	// 免费次数
+	optional	int32			freetime		= 5;	// 免费次数刷新时间
+}
+
+// 购买商品
+message DseRandomShop_Buy
+{
+	optional 	int32 			itemid			= 1;	// 商品ID
+	optional 	int32 			ret				= 2;	// 返回结果
+	optional	DropList		droplist		= 3;
+}
+
+// 刷新商店
+message DseRandomShop_Refresh
+{
+	optional	int32			type			= 1;	// 商店类型
+	optional	int32			ret				= 2;	// 操作结果
+	repeated	RandomShopItem	itemlist		= 3;	// 道具列表
+}

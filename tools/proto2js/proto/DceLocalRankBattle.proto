@@ -1,0 +1,29 @@
+//package core.io.protocol;
+//排位赛
+
+message DceLocalRankBattleChallenge
+{//排位战挑战
+	optional int32 rank    				= 1;//挑战排名
+	optional string uid					= 2;//挑战uid
+}
+
+message DceLocalRankBattleTargetList
+{//排位战对手列表
+}
+
+message DceLocalRankBattleTopList
+{//排位战前十列表
+}
+
+message DceLocalRankBattleBuyTimes
+{//排位赛购买挑战次数
+	optional int32 times = 1;
+}
+
+message DceLocalRankBattleClearCD
+{//排位赛清除CD
+}
+
+message DceLocalRankBattleEnter
+{
+}

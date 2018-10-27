@@ -1,0 +1,78 @@
+//package core.io.protocol;
+//宝具
+
+message DceTreasureSoulList
+{//宝具之魂列表
+}
+
+message DceTreasureUpgrade
+{//宝具升级
+	optional string heroid 		= 1;//英雄唯一id
+	optional int32 upgradetimes = 2;//升级次数
+}
+
+message DceTreasureStrengthen
+{//宝具强化
+	optional string heroid = 1;//英雄唯一id
+}
+
+message DceTreasureSoulCompose
+{//宝具之魂合成
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+}
+
+message DceTreasureSoulDecompose
+{//宝具之魂分解
+	repeated int32 idlist = 1;
+	repeated int32 numlist = 2;
+}
+
+message DceRollTreasureSoul
+{//招募宝具之魂
+	optional int32 type = 1;//1血钻2金币3友情点
+	optional int32 count = 2;
+	optional bool autodismiss = 3;//自动分解
+}
+
+message DceRollTreasureSoulData
+{
+}
+
+message DceTreasureTransformRandom
+{//宝具之魂随机转化检查
+	optional int32 treasureid = 1;//
+}
+
+message DceTreasureTransform
+{//宝具之魂随机转化
+	optional int32 selfid = 1;//
+	optional int32 targetid = 2;//
+}
+
+message DceTreasureTransformRegular
+{//宝具之魂定向转化
+	optional int32 selfid = 1;//
+	optional int32 targetid = 2;//
+}
+
+message DceTreasureTransformCancle
+{//宝具之魂随即转化取消
+}
+
+message DceTreasureTransformData
+{//宝具之魂转化数据
+}
+
+message DceGetTreasureGift
+{//获取累积积分奖励
+}
+
+message DceTreasureBuyData
+{//宝具兑换历史数据
+}
+
+message DceTreasureBuy
+{//宝具兑换
+	optional int32 id = 1;	//兑换ID
+}

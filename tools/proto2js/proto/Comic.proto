@@ -1,0 +1,9 @@
+//package core.io.protocol;
+
+message ComicData
+{
+	optional int32	id							= 1; //关卡id
+	optional int32	times						= 2; //已挑战次数
+	optional bool	win							= 3; //是否挑战成功
+	optional int32	buytimes					= 4; //购买的次数
+}

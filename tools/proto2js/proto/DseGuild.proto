@@ -1,0 +1,126 @@
+//package core.io.protocol;
+//公会
+import "OtherPlayerData.proto";
+import "Guild.proto";
+
+//创建公会
+message DseCreateGuild
+{
+	optional string name = 1; //公会名字
+	optional int32 medal = 2; //徽章ID
+	optional int32 powerlimit = 3; //战力限制
+	optional int32 verifyoption = 4; //验证选项 1需要验证 2不需要验证
+	optional int32 res = 5;
+}
+
+//修改公会公共数据操作
+message DseModifyGuild
+{
+	optional string name = 1; //公会名字
+	optional int32 medal = 2; //徽章ID
+	optional int32 powerlimit = 3; //战力限制
+	optional int32 verifyoption = 4; //验证选项 1需要验证 2不需要验证
+	optional string delcaration = 5; //宣言
+	optional string notification = 6; //公告
+	optional int32 res = 7;
+}
+
+//解散公会
+message DseGuildDismiss
+{
+	optional int32 res = 1;
+}
+
+//申请加入公会
+message DseGuildApply
+{
+	optional string guildid = 1;
+	optional int32 res = 2;
+}
+
+//申请加入本公会人员列表
+message DseGuildApplyList
+{
+	repeated GuildApplyData applylist = 1;
+}
+
+//公会数据
+message DseGuildData
+{
+	optional string guildid = 1;
+	optional string name = 2; //军团名字
+	optional int32 medal = 3; //徽章ID
+	optional int32 level = 4; //等级
+	optional string declaration = 5; //宣言
+	optional string notify = 6; //公告
+	optional int32 pos = 7; //职位
+	optional int32 membercount = 8; //成员人数
+	optional int32 verifyoption = 9; //入团申请审批选项,1需要审核，2无需审核
+	optional int32 powerlimit = 10; //战力限制
+	optional int32 quittime = 11; //上次退出时间
+	optional int32 invitetime = 12; //上次邀请时间
+	optional int32 build = 13; //建设度
+	optional int32 contributetype = 14; //本日捐献类型
+	repeated int32 guildsciencelist = 15; //公会科技
+	optional int32 battlenotifytime = 16; //战术修改时间
+	optional int32 guildrank = 17; //公会排名
+	optional string chiefname = 18; //会长名字
+	optional int32 expeltimes = 19; //公会开除成员次数
+}
+
+//公会人事相关操作
+message DseGuildOperation
+{
+	optional string uid = 1;
+	optional int32 type = 2;
+	optional int32 subtype = 3;
+	optional int32 res = 4;
+}
+
+//请求公会列表
+message DseGuildList
+{
+	repeated GuildData guildlist = 1;
+}
+
+//请求公会成员列表
+message DseGuildMemberList
+{
+	repeated GuildMemberData memberlist = 1; //成员列表
+}
+
+
+//搜索公会信息
+message DseSearchGuild
+{
+	optional string id = 1;//公会ID
+	optional GuildData guilddata =2;
+	optional int32 res = 3;
+}
+
+//已申请公会列表
+message DseApplyList
+{
+	repeated string guildlist = 1;
+	optional int32 applytimes = 2; //本日已申请次数
+}
+
+//公会日志
+message DseGuildLogList
+{
+	repeated GuildLogList loglist = 18; //军团日志
+}
+
+//公会科技升级
+message DseGuildScienceUpgrade
+{
+	optional int32 scienceid = 1;
+	optional int32 res = 2;
+}
+
+//公会基础信息
+message DseGuildInfo
+{
+	optional string guildid = 1;
+	optional GuildData guilddata = 2;
+}

@@ -1,0 +1,33 @@
+//评论数据结构
+
+message ThemeStageData
+{
+	optional int32 stageid = 1;				//节点id
+	repeated ThemeLevelData levellist = 2;	//关卡列表
+	optional bool complete = 3;			//通关
+}
+
+message ThemeLevelData
+{
+	optional int32 level = 1;				//关卡id
+	optional string power = 2;				//剩余战力(boss关用)
+	optional int32 challengetime = 3;		//挑战次数
+	optional int32 buytime = 4;				//购买次数
+	optional bool firstreward = 5;			//首次奖励是否已领
+	optional bool complete = 6;				//通关
+	optional string maxpower = 7;			//总战力(boss关用)
+	optional int32 monsterid = 8;			//monsterid(boss关用)
+}
+
+message ThemeMissionData
+{
+	optional int32 type = 1;				//任务类型
+	optional int32 time = 2;				//次数
+	repeated int32 rewardid = 3;			//已领奖列表	
+}
+
+message ThemeExchangeData
+{
+	optional int32 id = 1;					//兑换id
+	optional int32 num = 2;					//兑换次数
+}

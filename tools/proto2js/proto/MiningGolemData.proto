@@ -1,0 +1,13 @@
+//package core.io.protocol;
+//魔像数据结构
+
+//魔像数据
+message MiningGolemData
+{
+	optional int32 x = 1;				//x
+	optional int32 y = 2;				//y
+	optional int32 id = 3;				//魔像ID
+	optional int32 runtime = 4;			//逃跑时间
+	optional int32 resettime = 5;		//重置时间
+	optional int32 failedtimes = 6;		//失败次数
+}

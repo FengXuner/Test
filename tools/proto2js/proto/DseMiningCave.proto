@@ -1,0 +1,49 @@
+import "DropList.proto";
+import "BattleData.proto";
+//package core.io.protocol;
+
+//矿区洞穴挑战
+message DseMiningCaveChallenge
+{
+	optional int32 levelid  				= 1;	//洞穴关卡id
+	optional int32 res						= 2;	//操作结果
+	optional DropList droplist				= 3;	//掉落表
+	optional BattleResult result			= 4;	//战斗结果
+}
+
+//矿区洞穴购买挑战次数
+message DseMiningCaveBuyCount
+{
+	optional int32 baseid				= 1;	//洞穴id
+	optional int32 res					= 2;	//操作结果
+}
+
+//矿区洞穴基础数据下发
+message DseMiningCaveBaseData
+{
+	repeated int32 challengecountlist	= 1;	//剩余挑战次数表(MiningCaveBase)
+	repeated int32 buycountlist			= 2;	//已购买次数列表(MiningCaveBase)
+	repeated int32 maxlevellist			= 3;	//最高挑战等级(MiningCaveBase)
+}
+
+//重生boss开启
+message DseRebornBossOpen
+{
+	optional int32 ret					= 1;	//操作结果
+}
+
+//重生boss挑战
+message DseRebornBossChallenge
+{
+	optional int32 ret					= 1;	//操作结果
+	optional DropList droplist			= 2;	//掉落表
+	optional BattleResult result		= 3;	//战斗结果
+}
+
+//重生boss数据下发
+message DseRebornBossData
+{
+	optional int32 id					= 1;	//bossid
+	optional string power				= 2;	//剩余战力
+	optional int32 time					= 3;	//刷新时间
+}

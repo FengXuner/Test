@@ -1,0 +1,17 @@
+//package core.io.protocol;
+
+//竞技场挑战
+message DceLocalArenaChallenge
+{
+	optional string uid    				= 1;	//挑战目标ID
+}
+
+//竞技场请求数据
+message DceLocalArenaRequireData
+{
+}
+
+//竞技场钻石刷新
+message DceLocalArenaRefresh
+{
+}

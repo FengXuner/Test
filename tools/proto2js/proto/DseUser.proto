@@ -1,0 +1,151 @@
+//package core.io.protocol//用户相关操作
+import "MonthCardData.proto";
+import "BattleData.proto";
+import "DseHero.proto";
+import "DseRune.proto";
+import "Strength.proto";
+
+//返回认证通过状态
+message DseAuthState 
+{
+    required bool pass = 1;        	//是否认证通过
+    required int32 type = 2;		//未通过原因(1.checkSecret; 2.封停)
+    required int32 leftMin = 3;		//剩余时间
+}
+
+message DsePlayerData
+{//玩家基础信息
+	optional string uid = 1;
+	optional string name = 2;//名字
+	optional int32 model = 3;//模型id
+	optional string gold = 4;//金币
+	optional string exp = 5;//经验
+	optional string power = 6;//历史最高战斗力
+	optional int32 diamond = 7;//钻石
+	optional int32 timezone = 8;//
+	optional int32 heronum = 9; //可持有英雄数量
+	optional int32 battlenum = 10; //可上阵英雄数量
+	optional string guildid = 11; //公会id
+	optional int32 registertime = 12; //创建角色时间
+	optional int32 friendpoint = 13; //友情点
+	optional int32 starttime = 15; //开服时间
+	optional int32 honour = 16; //荣誉
+	optional int32 talentpoint = 17; //天赋点
+	optional int32 runepoint = 18;//符文点
+	optional int32 reputation = 19;//声望
+	optional int32 expeditionpoint = 20;//远征币
+	optional int32 begintime = 21;
+	optional string runeexp = 22;//符文经验
+	optional int32 level = 23;//等级
+	optional string levelexp = 24;//等级经验
+	optional StrengthData 		strengthdata		= 25; //体力
+	optional int64				battlerate			= 26; //战力评分
+	optional int32 serverchannel = 27; //服务器组
+	optional int32 onlinetime  = 28; //当天在线时长(防沉迷)
+	optional StrengthData comicenergy = 29;//漫画副本体力
+	optional string soulstoneexp = 30; //魂石经验
+}
+
+message DseMonthCardData
+{//月卡信息
+	repeated MonthCardData monthcardlist = 1;
+	optional int32			weekcardtimes = 2;
+}
+
+message DseFirstRechargeList
+{//首充列表 
+	repeated int32 firstrechargelist = 1;
+	optional int32 firstrecharge = 2; //首充档位
+	optional bool firstrechargereward = 3; //首充礼包是否领取
+	repeated int32 rechargelist = 4; //已充值档位列表
+}
+
+message DseRecharge
+{//充值成功
+	optional int32 type = 1; //充值档位
+}
+
+message DseCreateRole
+{//创建角色
+	optional string name = 1;//名字
+	optional int32 modelid = 2;//模型id
+	optional int32 res = 3;//结果
+}
+
+message DseScoutPlayer
+{//查看别人阵型
+	optional string uid = 1;
+	optional int32 battletype = 2;
+	optional int32 res = 3;
+	optional BattlePlayerData battleplayer = 4;
+}
+
+message DseFirstRechargeReward
+{//首充礼包奖励
+	optional int32 res = 1;
+}
+
+message DseReName
+{//重命名
+	optional string name = 1;
+	optional int32 res = 2;
+}
+
+message DseSetModel
+{//修改模型id
+	optional int32 modelid = 1;
+	optional int32 res = 2;
+}
+
+message DseSetLeader
+{//修改主角
+	optional int32 leaderid = 1;
+	optional int32 res = 2;
+}
+
+message DseGuideData
+{
+	optional int32 guidestep = 1; //新手引导步骤
+	repeated int32 functionguidelist = 2; //功能引导列表
+}
+
+message DseLevelData
+{
+	optional int32 level = 1;//等级
+	optional string levelexp = 2;//等级经验
+	optional int32 type = 3;//类型
+}
+
+message DseSecondChargeReward
+{// 续充领奖
+	optional int32 res = 1;  // 0领取成功   1还没续充  2已领过奖
+}
+
+message DseSecondChargeData
+{// 续充数据
+	optional int32 secondrecharge 		= 1; 	   //续充档位
+	optional bool secondrechargereward  = 2; 	   //续充礼包是否领取
+}
+
+message DseBuyStrengh
+{// 购买体力
+	optional int32 num = 1;
+	optional int32 res = 2;
+}
+
+message DseStrengthData
+{
+	optional StrengthData 		strengthdata		= 1; //体力
+}
+
+message DseCheckLimitRecharge
+{
+	optional int32 type = 1;
+	optional bool buy = 2;
+	optional int32 id = 3;
+}
+
+message DseUpdateBattleRate
+{
+	optional string battlerate = 1;
+}

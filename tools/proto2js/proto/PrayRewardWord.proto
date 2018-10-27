@@ -1,0 +1,7 @@
+//6元充值领奖祝福语数据
+
+message PrayRewardBroadcast
+{
+	optional int32				id					= 1; //档位
+	repeated string				paramlist			= 2; //参数列表
+}

@@ -1,0 +1,248 @@
+//package core.io.protocol;
+//日常活动及限时活动2
+
+import "PrayRewardWord.proto";
+
+//6元充值领奖
+message DcePrayRewardReward
+{
+	optional int32			reward = 1;//已领奖档位
+}
+
+//6元充值数据
+message DcePrayRewardData
+{
+	
+}
+
+//6元充值祝福语
+message DcePrayRewardWord
+{
+	optional string content = 1;//祝福语数据
+}
+
+//6元充值人数增加（服务器用）
+message DcePrayRewardUpdateNum
+{
+}
+
+//6元充值广播增加（服务器用）
+message DcePrayRewardBroadcast
+{
+	optional PrayRewardBroadcast	payrewardbroadcast = 1;//广播数据
+}
+
+//单笔充值数据
+message DceSingleCashData
+{
+}
+
+//单笔充值领奖
+message DceSingleCashReward
+{
+	optional int32				id = 1;//领奖档位
+}
+
+//限时宝具数据
+message DceLimitTreasureData
+{
+}
+
+//限时宝具抽取
+message DceLimitTreasureRoll
+{
+	optional int32				type = 1;//抽奖类型 1为免费单次，2为付费单次，3为付费十次
+	optional int32				treasureid = 2;//宝具id
+	optional bool				autodismiss = 3;//自动解雇
+}
+
+//招财猫数据
+message DceLuckyCatData
+{
+}
+
+//招财猫抽奖
+message DceLuckyCatReward
+{
+	optional int32 type = 1;
+	optional string name = 2;
+}
+
+//基金计划数据
+message DceFundPlanData
+{
+}
+
+//高级契约数据刷新
+message DceHighContractData
+{
+}
+
+//高级契约领奖
+message DceHighContractReward
+{
+	optional int32				heroid = 1;//英雄id
+	optional int32				rewardid = 2;//奖励id
+}
+
+//神将召唤积分商店购买
+message DceNewLGHeroBuy
+{
+	optional int32				id = 1;//Id
+	optional int32				count = 2;//数量
+}
+
+//限时宝具积分商店购买
+message DceLimitTreasureBuy
+{
+	optional int32				id = 1;//Id
+	optional int32				count = 2;//数量
+}
+
+//宝具兑换兑换奖励
+message DceTreasureExchange
+{
+	optional int32				id = 1;//奖励id
+	optional int32				num = 2;//兑换数量
+}
+
+//宝具兑换数据
+message DceTreasureExchangeData
+{
+}
+
+//等级奖励数据
+message DceLevelRewardData
+{
+}
+
+//等级奖励领奖
+message DceLevelRewardReward
+{
+	optional int32				id = 1;//奖励id
+}
+
+//新每日充值领奖
+message DceNewRechargeEverydayReward
+{
+	optional int32				id = 1;//奖励id
+}
+//新每日充值数据
+message DceNewRechargeEverydayData
+{
+}
+
+// 限定充值礼包，充值检测
+message DceChargeLimitGiftCheck
+{
+	optional int32 id 	= 1; // id
+}
+
+// 获取数据
+message DceChargeLimitGiftGetData
+{
+}
+
+//开服竞赛请求数据
+message DceNewbieServerRank_Data
+{
+}
+
+//开服竞赛领奖
+message DceNewbieServerRank_Reward
+{
+	optional int32 id	= 1; //id
+}
+
+//日常活动数据
+message DceActivityData
+{
+}
+
+
+// 累计登陆领奖
+message DceActivityLoginGetReward
+{
+	optional int32 id	= 1;	//id
+}
+
+message DceNewbieLocalWorldBossData
+{
+}
+
+message DceNewbieLocalWorldBossReward
+{
+	optional int32 id = 1;
+}
+
+// 获取数据
+message DceActivityOnlineGiftGetData
+{
+}
+
+// 领取体力
+message DceActivityOnlineGiftGetStrength
+{
+}
+
+message DceMagicHeroExchangeData
+{//奥术抽卡兑换数据
+}
+
+message DceMagicHeroExchangeBuy
+{//奥术抽卡兑换购买
+	optional int32 id = 1;
+	optional int32 count = 2;
+}
+
+message DceMagicTreasureExchangeData
+{//神铸之藏兑换数据
+}
+
+message DceMagicTreasureExchangeBuy
+{//神铸之藏兑换购买
+	optional int32 id = 1;
+	optional int32 count = 2;
+}
+
+//幸运大转盘数据
+message DceLuckyWheelData
+{
+}
+
+//幸运大转盘积分兑换
+message DceLuckyWheelBuy
+{
+	optional int32 id			= 1; //购买id（商店表id）
+	optional int32 times		= 2; //购买数量
+}
+
+//幸运大转盘抽奖
+message DceLuckyWheelRoll
+{
+	optional int32 type			= 1; //类型，0为单次，1为十次
+}
+
+//幸运大转盘领取累计奖励
+message DceLuckyWheelReward
+{
+}
+
+// 招财猫获取数据
+message DceActivityCatData
+{
+}
+
+// 招财猫招财
+message DceActivityCatReward
+{
+}
+
+//升级折扣活动
+message DceActivityUpgrade
+{
+}
+
+message DceActivityLoginSecondGetReward
+{
+}

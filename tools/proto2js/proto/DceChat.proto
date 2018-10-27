@@ -1,0 +1,60 @@
+
+//package core.io.protocol;
+//聊天相关请求
+
+//聊天
+message DceChat
+{
+	optional int32 type = 1; 				//1世界聊天2本服聊天3工会聊天4私聊
+	optional string uid	= 2; 				//type为2时是公会id,type为3时为uid
+	optional string name = 3; 				//私聊对象名字
+	optional string content = 4; 			//内容
+}
+
+//聊天选项
+message DceChatAction
+{
+	optional int32 type = 1; 				//1世界聊天2本服聊天3工会聊天4私聊
+	optional string uid = 2; 				//聊天发言人
+	optional int32 time = 3; 				//聊天时间
+	optional int32 action = 4; 				//操作
+}
+
+//黑名单操作
+message DceBlackListOperation
+{
+	optional string uid = 1;				//目标id
+	optional int32 type = 2;				//操作类型1添加黑名单2删除黑名单
+	optional bool global = 3;				//false本服 true全服
+	optional string name = 4;				//名字，仅全服需要
+	optional int32 head = 5;				//头像，仅全服需要
+}
+
+//请求公会聊天数据
+message DceChatReqGuild
+{
+}
+
+//请求全服聊天数据
+message DceGlobalChat
+{
+	optional int32 version = 1;				//客户端当前版本号
+}
+
+//请求全服聊天绿点
+message DceGlobalChatTips
+{
+	optional int32 version = 1;				//客户端当前版本号
+}
+
+//请求全服广播数据
+message DceGlobalBroadcast
+{
+	optional int32 version = 1;				//客户端当前版本号
+}
+
+//请求全服广播绿点
+message DceGlobalBroadcastTips
+{
+	optional int32 version = 1;				//客户端当前版本号
+}

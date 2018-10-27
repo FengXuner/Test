@@ -1,0 +1,29 @@
+import "DropList.proto";
+//package core.io.protocol;
+
+//签到
+message DseCheckIn
+{
+	optional int32 ret						= 1;	//操作结果
+	optional DropList droplist				= 2;	//掉落
+	optional int32 times					= 3;	//已签到次数
+}
+
+//领取累计签到奖励
+message DseCheckInTotalReward
+{
+	optional int32 ret = 1;							//结果
+	optional int32 times = 2;							//已领取次数
+	optional DropList droplist = 3;					//掉落
+}
+
+//基本数据下发
+message DseCheckInData
+{
+	optional int32 logintimes = 1;					//累计登陆次数
+	optional int32 rewardtimes = 2;					//累计签到次数
+	optional int32 totalrewardtimes = 3;			//已领累计签到奖励次数
+	optional int32 rewardid = 4;					//奖励id（当前）
+	optional int32 rewardgroup = 5;					//奖励组（当前）
+}
+

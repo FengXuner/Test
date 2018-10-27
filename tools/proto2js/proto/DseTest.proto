@@ -1,0 +1,17 @@
+//package core.io.protocol;
+//≤‚ ‘
+import "BattleData.proto";
+
+message DseTestChallenge
+{//’Ω∂∑≤‚ ‘-NPC
+	optional int32 monsterid = 1;
+	optional BattleResult battleresult = 2;
+	optional int32 res = 3;
+}
+
+message DseTestBattle
+{//’Ω∂∑≤‚ ‘-ÕÊº“
+	optional string uid = 1;
+	optional BattleResult battleresult = 2;
+	optional int32 res = 3;
+}

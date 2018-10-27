@@ -1,0 +1,41 @@
+import "CommentData.proto";
+
+//package core.io.protocol;
+
+//请求评论数量
+message DseCommentNum
+{
+	optional int32 tarid							= 1;	//目标关卡/佣兵id
+	optional int32 num								= 2;	//评论数量
+}
+
+//请求评论内容
+message DseCommentData
+{
+	optional int32 tarid							= 1;	//目标关卡/佣兵id
+	repeated CommentData commentlist				= 2;	//评论列表
+}
+
+//评论基本数据下发
+message DseCommentBaseData
+{
+	optional int32 todaycomment 					= 1; //今日评论数
+	optional int32 todaypraise						= 2; //今日点赞数
+	repeated string praiseidlist					= 3; //今日点赞id列表
+}
+
+//评论结果
+message DseCommentAdd
+{
+	optional int32 tarid							= 1;	//目标关卡/佣兵id
+	optional CommentData comment					= 2;	//评论数据
+	optional int32 ret								= 3;	//操作结果
+}
+
+//点赞结果
+message DseCommentPraise
+{
+	optional int32 tarid							= 1;	//目标关卡/佣兵id
+	optional string uid								= 2;	//目标评论uid
+	optional int32 ret								= 3;	//操作结果
+}

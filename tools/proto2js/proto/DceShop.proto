@@ -1,0 +1,8 @@
+//package core.io.protocol;
+
+//购买商店物品
+message DceBuy
+{
+	optional int32 id    = 1;
+	optional int32 count = 2;
+}

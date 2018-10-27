@@ -1,0 +1,6 @@
+message DceExchangePictureFrame
+{
+	optional int32 id    				 = 1;	// 要装饰的头像框id
+
+}
+
