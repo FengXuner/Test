@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.17528609154929578,
-      "y": 0.17528609154929578,
+      "x": 1.2968946299367698,
+      "y": 1.2968946299367698,
       "z": 1
     },
     "_quat": {
@@ -431,7 +431,7 @@
     "_id": "21Q8xF1iVKmLy27wi5gOpF"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -440,7 +440,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "头",
     "_N$string": "头",
     "_fontSize": 20,
@@ -453,7 +453,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "f1SpxlNilCO4VmLlK+yaH7"
+    "_N$textKey": "head",
+    "_id": "c85TuuQ0dFm4G4no2GCjuI"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -672,7 +673,7 @@
     "_id": "58niy536BJypZZxXOfGVAg"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -681,7 +682,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "身体",
     "_N$string": "身体",
     "_fontSize": 20,
@@ -694,7 +695,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "bc3Z4MjyVJqKkfNwoCq23C"
+    "_N$textKey": "body",
+    "_id": "8cN50BXPtMf7dfVoGOECAD"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -977,7 +979,7 @@
     "_id": "e4fqtkaGZFfa6W/iJG9cTr"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -986,7 +988,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "左脚",
     "_N$string": "左脚",
     "_fontSize": 20,
@@ -999,7 +1001,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "a7QCX7iqhO0JbV2iFGpicv"
+    "_N$textKey": "leftFoot",
+    "_id": "18ZUT4SNVMc6QUZC/1dXnx"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1240,7 +1243,7 @@
     "_id": "3aoeVZn7NBXYarGyl//5Qv"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1249,7 +1252,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "右脚",
     "_N$string": "右脚",
     "_fontSize": 20,
@@ -1262,7 +1265,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "93qM8/pvZIUIjPy8CUp52T"
+    "_N$textKey": "rightFoot",
+    "_id": "a6FIsgGMtI8q0pEKOwTTBV"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1503,7 +1507,7 @@
     "_id": "dafrywALhJz6nwnPck0iqO"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1512,7 +1516,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "左手",
     "_N$string": "左手",
     "_fontSize": 20,
@@ -1525,7 +1529,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "06wtxJRpFLv5z7jmcg1ddI"
+    "_N$textKey": "leftHand",
+    "_id": "e9as1+L1JAloB8MprbNGfF"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1766,7 +1771,7 @@
     "_id": "9bgtqlSkxPUpE4iJyRs/cU"
   },
   {
-    "__type__": "cc.Label",
+    "__type__": "e4f88adp3hERoJ48DZ2PSAl",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -1775,7 +1780,7 @@
     "_enabled": true,
     "_srcBlendFactor": 1,
     "_dstBlendFactor": 771,
-    "_useOriginalSize": false,
+    "_useOriginalSize": true,
     "_string": "右手",
     "_N$string": "右手",
     "_fontSize": 20,
@@ -1788,7 +1793,8 @@
     "_N$verticalAlign": 1,
     "_N$fontFamily": "Arial",
     "_N$overflow": 0,
-    "_id": "82neiwM6FMPbOmj1yT/NCE"
+    "_N$textKey": "rightHand",
+    "_id": "bb5vMqeCRI7Kiky8B6M+KU"
   },
   {
     "__type__": "cc.PrefabInfo",
